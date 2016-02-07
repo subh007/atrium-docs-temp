@@ -1,5 +1,4 @@
 Welcome to the atrium-docs wiki!
-
 {|
 ! Release 
 ! Date 
