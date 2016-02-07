@@ -6,6 +6,6 @@ Welcome to the atrium-docs wiki!
 ! Downloads 
 ! Documentation
 |-
-| 2015/A || June 30th 2015 || Atrium_2015_A.ova || Release Notes
+| 2015/A || June 30th 2015 || Atrium_2015_A.ova || Introduction, Release Notes, Installation Guide, User Guide, System Architecture 
 |-
 |}
