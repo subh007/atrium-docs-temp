@@ -1,4 +1,4 @@
-![](https://www.opennetworking.org/components/com_wordpress/wp/wp-content/uploads/2015/06/Atrium-Logo-300x123.jpg)
+[[File:Atrium-Logo-300x123.jpg]]
 
 Welcome to the Atrium wiki!
 {|
