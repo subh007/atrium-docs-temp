@@ -1,3 +1,5 @@
+![](https://github.com/onfsdn/atrium-docs/blob/master/Atrium-Logo-300x123.jpg)
+
 Project Atrium develops an open SDN Distribution -  a vertically integrated set of open source components which together form a complete SDN stack.
 
 ### Motivation
