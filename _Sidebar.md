@@ -8,6 +8,6 @@
 * Release 2015/A
     + [Introduction](https://github.com/onfsdn/atrium-docs/wiki/Introduction-(15A))
     + Release Notes
-    + Installation Guide
+    + [Installation Guide](https://github.com/onfsdn/atrium-docs/wiki/Installation-Guide-(15A))
     + User Guide
     + System Architecture
