@@ -7,3 +7,15 @@ In the Atrium 16/A release, we have included experimental support for a new vert
 The fabric is built on EdgeCore bare-metal hardware from the Open Compute Project, and switch software including OCP’s Open Network Linux, and Broadcom’s OF-DPA API. It leverages earlier work from the ONF’s SPRING-OPEN project that implemented segment-routing using SDN. 
 
 [[https://github.com/onfsdn/atrium-docs/blob/master/16A/ONOS/pics/stack.png]]
+
+
+### Getting Started
+
+Follow the [Installation Guide](https://github.com/onfsdn/atrium-docs/wiki/Installation-Guide-ONOS-Based-Fabric-16A) to configure and launch ONOS from the [Atrium_ONOS_2016_A.ova](https://github.com/onfsdn/atrium-docs/wiki) distribution VM.
+
+For the switches that make up the fabric, you have choice! You could either get started with hardware switches. In principle any hardware switch that supports OF-DPA should work. However, in this release only a specific build of OF-DPA is certified to work for this fabric. In the near future, when OF-DPA 2.0 is GA and publicly available we will release a version of the fabric for the GA code. Right now, we provide a binary that you can load on your switch -- one of Accton/EdgeCore 5710, 5712 or 6712 models. Follow the directions to download and install Atrium on your hardware switch.
+
+If you don't have a hardware-switch, you could get started with a software switch that emulates the hardware-switch pipeline (ie. the OF-DPA pipeline). Follow the guide to get started with software-switches.
+
+
+
