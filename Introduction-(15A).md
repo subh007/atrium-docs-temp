@@ -12,7 +12,7 @@ Most importantly we wish to **work closely with network operators** on deployabl
 ### Atrium Release 2015/A
 In the first release (2015/A), Atrium is quite simply an open-source router that speaks BGP to other routers, and forwards packets received on one port/vlan to another, based on the next-hop learnt via BGP peering.
 
- 
+![](https://github.com/onfsdn/atrium-docs/blob/master/15A/pics/router.jpg)
 
 Atrium creates a vertically-integrated stack to produce an SDN based router. This stack can have the forms shown below.
 
