@@ -69,6 +69,23 @@ For more on tmux, please see this tutorial.
 We are assuming you are still ssh'd into the distribution VM, and have already configured the controller. Before you launch ONOS, enter
 
 `admin@atrium:~$ tmux new`
-That should bring up a window like below. Notice the "bar" at the bottom identifying the tmux session. 
+
+That should bring up a window like below. Notice the green "bar" at the bottom identifying the tmux session. 
 
 ![](https://github.com/onfsdn/atrium-docs/blob/master/15A/pics/tmux.jpg)
+
+Now you can enter "ok clean" to launch ONOS (after running "./router-cleanup.sh" and possibly "onos-service localhost stop")
+
+To detach from the window, enter 'Ctrl-b' followed by 'd'.
+
+You can view the active tmux windows by typing:
+
+`admin@atrium:~$ tmux ls`
+`0: 1 windows (created Thu Jun 25 17:39:27 2015) [109x36]`
+
+To reattach to the session:
+
+`admin@atrium:~$ tmux at -t 0`
+
+You are now ready to configure Quagga.
+
