@@ -20,5 +20,6 @@ On the left, the stack includes a controller (ONOS) with a peering application (
 
 On the right, the control plane stack remains the same. The one change is that we use a different device-driver in the controller, depending on the vendor equipment we work with. Currently Atrium release 2015/A works with equipment from Noviflow (1132), Centec (v350), Corsa (6410), Pica8 (P-3295), and Netronome. The vendor equipment exposes the underlying switch capabilties necessary for the peering application via an OpenFlow agent (typically OVS) to the control plane stack.
 
-![](https://github.com/onfsdn/atrium-docs/tree/master/15A/pics/atrium-1.jpg) 
-![](https://github.com/onfsdn/atrium-docs/tree/master/15A/pics/atrium-2.jpg)
+![](https://github.com/onfsdn/atrium-docs/blob/master/15A/pics/atrium-1.jpg) 
+![](https://github.com/onfsdn/atrium-docs/blob/master/15A/pics/atrium-2.jpg)
+![](https://github.com/onfsdn/atrium-docs/blob/master/15A/pics/atrium-rack.jpg)
