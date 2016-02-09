@@ -48,12 +48,27 @@ ONOS may already be running. Use the following command to ensure that ONOS is no
 
 Then to launch, just run "ok clean" (note that this is one way to launch ONOS - another way is to use onos-service start/stop)
 
-![](https://github.com/onfsdn/atrium-docs/blob/master/15A/pics/clean.jpg)
+![](https://github.com/onfsdn/atrium-docs/blob/master/15A/pics/onos.jpg)
 
-ONOS may already be running. Use the following command to ensure that ONOS is not started automatically
+As a sanity check, enter the command "log:tail" on the ONOS (karaf) CLI.
 
-`admin@atrium:~$ onos-service localhost stop`
+`onos> log:tail`
 
-Then to launch, just run "ok clean" (note that this is one way to launch ONOS - another way is to use onos-service start/stop)
+Scroll through the log and verify you see the lines:
+![](https://github.com/onfsdn/atrium-docs/blob/master/15A/pics/log.jpg)
+
+The "Router dpid" should be the one you just configured in the config files, and the "Control Plane OVS dpid" will be explained in the next section.
+
+You are now ready to configure Quagga.
+
+### Launching ONOS for Deployment
+For deployment it is best to launch ONOS within a terminal multiplexer like tmux. Why? Because, among other things, tmux gives you the abilty to maintain persistent working state on remote servers (in our case, on the distribution VM) while detaching and re-attaching at will. In other words, you could ssh into the VM, start a tmux session, startup ONOS within, detach from the tmux session, break your ssh connection, come back later, ssh in again and reattach to the tmux session, to see what's been going on with the controller while you were away.
+
+For more on tmux, please see this tutorial.
+
+We are assuming you are still ssh'd into the distribution VM, and have already configured the controller. Before you launch ONOS, enter
+
+`admin@atrium:~$ tmux new`
+That should bring up a window like below. Notice the "bar" at the bottom identifying the tmux session. 
 
 ![](https://github.com/onfsdn/atrium-docs/blob/master/15A/pics/tmux.jpg)
