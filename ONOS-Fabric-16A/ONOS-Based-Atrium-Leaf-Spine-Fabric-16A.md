@@ -4,3 +4,4 @@ In the Atrium 16/A release, we have included experimental support for a new vert
 
 The Atrium Fabric is designed to scale up to 16 racks, using well-established design principles of L3 down-to-the-ToR switch, where packets are L2 switched within a rack, and L3 routed across racks. The fabric is built on EdgeCore bare-metal hardware from the Open Compute Project, and switch software including OCP’s Open Network Linux, and Broadcom’s OF-DPA API. It leverages earlier work from the ONF’s SPRING-OPEN project that implemented segment-routing using SDN. 
 
+![Fabric](https://github.com/onfsdn/atrium-docs/blob/master/16A/ONOS/pics/fabric.png)
