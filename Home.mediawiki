@@ -1,6 +1,7 @@
 [[https://github.com/onfsdn/atrium-docs/raw/master/Atrium-Logo-300x123.jpg]]
 
-Welcome to the Atrium wiki - your source for all Project Atrium documentation!
+Welcome to the Atrium wiki - your source of all documentation for Project Atrium!
+{|
 ! Release 
 ! Date 
 ! Downloads 
