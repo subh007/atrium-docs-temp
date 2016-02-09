@@ -5,10 +5,10 @@
     + ODL Based Router
     + ONOS Based Router
     + ONOS Based Leaf-Spine Fabric
-* Release 2015/A
+* **Release 2015/A**
     + [Introduction](https://github.com/onfsdn/atrium-docs/wiki/Introduction-(15A))
     + [Release Notes](https://github.com/onfsdn/atrium-docs/wiki/Release-Notes-15A)
     + [Installation Guide](https://github.com/onfsdn/atrium-docs/wiki/Installation-Guide-(15A))
-    + User Guide
-    + System Architecture
-    + Test Infrastructure
+    + [User Guide](https://github.com/onfsdn/atrium-docs/wiki/User-Guide-15A)
+    + [System Architecture]((https://github.com/onfsdn/atrium-docs/wiki/System-Architecture-15A)
+    + [Test Infrastructure](https://github.com/onfsdn/atrium-docs/wiki/Test-Infrastructure-15A)
