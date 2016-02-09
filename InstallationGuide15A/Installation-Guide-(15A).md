@@ -23,7 +23,7 @@ Get a recent version of VirtualBox to import and run the VM. We recommend the fo
 
 `$ ssh -X -p 3022 admin@localhost`
 
-
+![]()
 The second rule allows you to connect an external switch to the controller running within the VM (the guest-machine) using the IP address of the host-machine (in the example its 10.1.9.140) on the host-port 6633.
 
 If you chose to bridge (with DHCP) instead of NAT, then login to the VM to see what IP address was assigned by your DHCP server (on the eth0 interface). Then use ssh to get in to the VM from a terminal:
