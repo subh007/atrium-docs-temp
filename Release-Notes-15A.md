@@ -1,11 +1,11 @@
 ### Features:
-Atrium SDN based Router
+**Atrium SDN based Router**
 * choice of seven different hardware OpenFlow switches
 * supports  BGP routing protocol for IPv4
 * supports VLANs
 * supports multi-table OpenFlow 1.3.4 protocol
 
-Open SDN Distribution VM includes:
+**Open SDN Distribution VM includes:**
 * A snapshot of Open Network Operating System (ONOS) SDN controller verified to work with all seven hardware OpenFlow switches.
 * A BGP peering application that runs on ONOS and includes the Quagga BGP stack.
 * A collection of OpenFlow v1.3 device drivers in ONOS, meant for programming 7 switches with 5 different hardware pipelines.
@@ -15,7 +15,7 @@ Open SDN Distribution VM includes:
 * Capability to setup test topologies entirely in software  that include traditional routers and SDN based Atrium routers.
 * (Experimental) Automated test suite using the TestON framework for regression testing of the Atrium SDN router.
 
-Open-source Switch software stack for Bare-Metal/White-Box switches certified to work for Atrium SDN router. The stack includes:
+**Open-source Switch software stack for Bare-Metal/White-Box switches certified to work for Atrium SDN router. The stack includes:**
 * ONL - Open Network Linux (from the Open Compute Project)
 * ONIE - Open Network Install Environment (from the Open Compute Project)
 * OFDPA - OpenFlow Datapath Abstration v2.0 - a hardware abstraction layer from Broadcom meant for OpenFlow compatibilty
@@ -24,14 +24,14 @@ Open-source Switch software stack for Bare-Metal/White-Box switches certified to
 * Quanta LY2 bare metal switch - certified to work with Atrium open-source switch software stack for Atrium SDN router.
 * A set of utility scripts for testing the hardware tables, and instructions for installation and usage.
 
-Hardware switches from following vendors certified for Atrium SDN router
+**Hardware switches from following vendors certified for Atrium SDN router**
 * Centec v350
 * Corsa 6410
 * Netronome FlowNIC
 * NoviFlow 1152
 * Pica8 P-3295
 
-Documentation for installation, configuration, and operation for test and deployment
+**Documentation for installation, configuration, and operation for test and deploymen**t
  
 
 ### Known Issues:
