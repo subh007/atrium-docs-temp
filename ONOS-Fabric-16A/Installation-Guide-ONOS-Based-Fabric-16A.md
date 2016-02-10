@@ -18,7 +18,6 @@ Get a recent version of VirtualBox to import and run the VM. We recommend the fo
 * For networking, you can "Disable" the 2nd Network Adapter. We only need the 1st network adapter for the fabric. However we will need the 2nd adapter in the Atrium router use case, so you may want to keep it.
 
 * You could choose the primary networking interface (Adapter 1) for the VM to be NATted or "bridged". If you choose to NAT, you would need to create the following port-forwarding rules. 
-
 [[https://github.com/onfsdn/atrium-docs/blob/master/16A/ONOS/pics/rules.png]]
 
     + The first rule allows you to ssh into your VM, with a command from a Linux or MAC terminal like this: 
