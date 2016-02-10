@@ -1,7 +1,7 @@
 There are 3 steps in configuring and running ONOS from the distribution VM
 
 1. Use the correct "cell"
-1. Create the config in the `Applications/config/network-cfg.json` file
+1. Create (or copy over) the config in the `~/Applications/config/network-cfg.json` file
 1. Use the correct launch script
 
 #### Using the correct Cell
@@ -60,6 +60,18 @@ To test with hardware switches use the "fabric.hw" config file. To test with min
 
 Of course when using the "fabric.hw" config file, you will need to change the config to match your setup for switches and end hosts. See the [User Guide](https://github.com/onfsdn/atrium-docs/wiki/User-Guide-ONOS-Based-Fabric-16A) to understand how to change the config.
 
+#### Use the correct launch script
 
+It is easy to launch onos. Simply type
 
+    admin@atrium16A:~$ ok clean
 
+or you may also choose to launch onos within a tmux session as described [here](https://github.com/onfsdn/atrium-docs/wiki/Configure-and-run-ONOS-15A#launching-onos-for-deployment).
+
+Now you can connect the fabric hardware-switches to ONOS (if you configured ONOS for them) as described in the [Hardware Switches](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Fabric-16A) section.
+
+Or if you wish to work with software switches, run the following script (either from a different shell from your ONOS shell, or a different window/pane in your tmux session)
+
+    admin@atrium16A:~$ sudo ./fabric-test.py
+
+See the [Software Switches](https://github.com/onfsdn/atrium-docs/wiki/Software-Install-ONOS-Fabric-16A) section to understand what the script does and what you can expect to see in ONOS.
