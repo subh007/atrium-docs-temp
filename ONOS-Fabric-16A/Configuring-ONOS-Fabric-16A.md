@@ -45,4 +45,8 @@ If you wish to try the fabric with software switches, you could either use the "
     ONOS_WEB_PASS=rocks
     ONOS_WEB_USER=onos
 
+#### Create the network-cfg.json file
+
+This is in the ~/Applications/config/ directory of the distribution VM. 
+
 
