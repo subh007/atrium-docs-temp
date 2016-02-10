@@ -28,5 +28,21 @@ If you wish to try the fabric with hardware switches, the correct cell is "atriu
     ONOS_WEB_PASS=rocks
     ONOS_WEB_USER=onos
 
+In this mode, the the fabric control application does not learn the addresses of the end-hosts (rack-servers). The end-hosts addresses are either configured manually or programmed by an data-center orchestrator (like OpenStack). Currently the fabric lacks the support to automatically learn end-host addresses due to Issue # <>.
+
+If you wish to try the fabric with software switches, you could either use the "atrium_fabric" or "atrium_fabric_no_learn" cells. The difference is that different apps are launched depending on the chosen cell.
+
+    admin@atrium16A:~$ cell atrium_fabric
+    ONOS_CELL=atrium_fabric
+    OCI=127.0.0.1
+    OC1=127.0.0.1
+    OCN=127.0.0.1
+    ONOS_APPS=drivers,openflow,segmentrouting
+    ONOS_GROUP=admin
+    ONOS_NIC=127.0.0.*
+    ONOS_SCENARIOS=/home/admin/onos/tools/test/scenarios
+    ONOS_USER=admin
+    ONOS_WEB_PASS=rocks
+    ONOS_WEB_USER=onos
 
 
