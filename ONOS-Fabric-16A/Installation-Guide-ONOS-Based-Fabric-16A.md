@@ -29,7 +29,7 @@ Get a recent version of VirtualBox to import and run the VM. We recommend the fo
 * If you chose to bridge (with DHCP) instead of NAT, then login to the VM to see what IP address was assigned by your DHCP server (on the eth0 interface). Then use ssh to get in to the VM from a terminal on the host machine:
     + `$ ssh -X admin@<assigned-ip-addr>`
 
-Once in, try to ping the outside world as a sanity check (ping www.cnn.com).
+Once in, try to ping the outside world as a sanity check (`ping www.cnn.com`).
 
 
 **Running the Distribution VM on a Serve**r
