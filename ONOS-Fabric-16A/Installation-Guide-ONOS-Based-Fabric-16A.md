@@ -39,6 +39,6 @@ The Atrium_ONOS_2016_A.ova file is simply a tar file containing the disk image (
 
 Use the following command to convert the vmdk file to qcow2. You can then use your server's virtualization software to create a VM using the qcow2 image.
 
-`$ qemu-img convert -f vmdk Atrium_ONOS_2016_A-disk1.vmdk -O qcow2 Atrium_ONOS_2016_A-disk1.qcow2`
+    $ qemu-img convert -f vmdk Atrium_ONOS_2016_A-disk1.vmdk -O qcow2 Atrium_ONOS_2016_A-disk1.qcow2
 
 
