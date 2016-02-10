@@ -4,12 +4,12 @@ There is actually nothing to install if you want to work with software switches 
 
 Importantly, we use the software switch to emulate the hardware switch, by replicating the same fowarding-table-pipeline defined in the [OF-DPA spec](https://github.com/Broadcom-Switch/of-dpa/tree/master/OF-DPA-2.0). This emulation is done with the help of ONOS, where we use "drivers" to talk to different OpenFlow switches.
 
-For hardware switches based on OF-DPA, we use the  
+For hardware switches based on OF-DPA, we use the regular "ofdpa" driver
 
      <driver name="ofdpa" extends="default"
                 manufacturer="Broadcom Corp." hwVersion="OF-DPA.*" swVersion="OF-DPA.*">
 
-For software switches emulating OF-DPA, we use the
+For software switches emulating OF-DPA, we use the "ofdpa-cpqd" driver
 
      <driver name="ofdpa-cpqd" extends="default"
                 manufacturer="ONF"
