@@ -64,3 +64,4 @@ Make sure you select the _amd64.deb for the x86 switch models, or _powerpc.deb f
 
     # brcm-indigo-ofdpa-ofagent --dpid=0x1 --controller=<atrium-vm-eth0-IP> 
 
+10) Done. Consult the [User Guide](https://github.com/onfsdn/atrium-docs/wiki/User-Guide-ONOS-Based-Fabric-16A) for configuration and debugging options.
