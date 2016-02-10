@@ -39,6 +39,8 @@ We use the [Indigo OF Agent](http://www.projectfloodlight.org/indigo/) from Big 
         gateway 10.128.0.1
         dns-nameservers 192.168.1.1 8.8.8.8
 
+Bring up the ma1 interface with `ifup ma1`
+
 6) Persist your config across reboots
 
     # persist /etc/shadow; persist /etc/passwd; persist /etc/network/interfaces
@@ -46,8 +48,19 @@ We use the [Indigo OF Agent](http://www.projectfloodlight.org/indigo/) from Big 
     # sync
     # reboot  
 
-7) You should now be able to ssh into the switch. Install OFDPA + Indigo debian package which has been included in the Atrium Distribution VM.
+7) You should now be able to ssh into the switch.  
+Copy over the OFDPA + Indigo debian package which has been included in the Atrium Distribution VM to the switch.
 
+    admin@atrium16A:~$ scp ofdpa/ofdpa-i.12.1.1_12.1.1+accton1.7-1_amd64.deb root@<switch-management-ip-addr>:/mnt/flash2/
 
+Make sure you select the _amd64.deb for the x86 switch models, or _powerpc.deb for the powerpc model. Ensure that the debian package has been saved to the /mnt/flash2/ drive, so that it is persistent through reboots.
 
+8) Install and launch OFDPA 
+
+    # service ofdpa stop
+    # dpkg -i --force-overwrite /mnt/flash2/ofdpa-i.12.1.1_12.1.1+accton1.7-1_amd64.deb
+
+9) Launch the OF client
+
+    # brcm-indigo-ofdpa-ofagent --dpid=0x1 --controller=<atrium-vm-eth0-IP> 
 
