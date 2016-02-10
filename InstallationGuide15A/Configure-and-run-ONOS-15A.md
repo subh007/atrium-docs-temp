@@ -64,7 +64,7 @@ You are now ready to configure Quagga.
 ### Launching ONOS for Deployment
 For deployment it is best to launch ONOS within a terminal multiplexer like tmux. Why? Because, among other things, tmux gives you the abilty to maintain persistent working state on remote servers (in our case, on the distribution VM) while detaching and re-attaching at will. In other words, you could ssh into the VM, start a tmux session, startup ONOS within, detach from the tmux session, break your ssh connection, come back later, ssh in again and reattach to the tmux session, to see what's been going on with the controller while you were away.
 
-For more on tmux, please see this tutorial.
+For more on tmux, [please see this tutorial](https://danielmiessler.com/study/tmux/).
 
 We are assuming you are still ssh'd into the distribution VM, and have already configured the controller. Before you launch ONOS, enter
 
