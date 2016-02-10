@@ -18,7 +18,7 @@ While there are a number of ways to get Open Network Linux (ONL) on your white-b
 
 [[https://github.com/onfsdn/atrium-docs/blob/master/15A/pics/uboot.jpg]]
 
-5) Enter the command: 'run onie_rescue`
+5) Enter the command: `run onie_rescue`
 
 This should get you back into ONIE in rescue mode
 
@@ -43,3 +43,34 @@ This will download ONL and install it in your switch, and reboot it, and load st
 
 [[https://github.com/onfsdn/atrium-docs/blob/master/15A/pics/netif.jpg]]
 
+11) To persist this configuration across reboots, run the following commands
+
+    # persist /etc/shadow; persist /etc/passwd; persist /etc/network/interfaces
+    # savepersist /persist/rootfs
+    # cpio -tv < /mnt/flash/persist/rootfs 
+    # sync
+    # reboot
+The cpio command is just a sanity check to see if the right files got persisted. You should see files like shown in the screenshot below:
+
+[[https://github.com/onfsdn/atrium-docs/blob/master/15A/pics/persist.jpg]]
+
+
+12) Ensure that once the switch reboots and comes back to ONL, you have the right network interfaces, and can ping the outside world. Your network interface configuration should now persist through reboots. 
+
+### Launching OFDPA and Indigo
+To launch OFDPA use the following script:
+
+    root@onl-powerpc:~# /etc/init.d/ofdpa start
+
+To launch Indigo, enter the following command (change the dpid to whatever you have configured ONOS to expect, and change the IP address to whatever is your controller IP):
+
+    root@onl-powerpc:~# brcm-indigo-ofdpa-ofagent --dpid=0x000000154d0a0c24 -t 10.1.9.140:6633
+
+After launching if you check: 
+
+    root@onl-powerpc:~# ps aux | grep ofdpa
+    root      1298 33.5 16.4 420616 327708 ?       Sl   07:33   0:19 /usr/sbin/ofdpa-powerpc-accton-as5710-54x-r0
+    root      1661  0.3  0.2   8336  4332 pts/0    S    07:33   0:00 brcm-indigo-ofdpa-ofagent --dpid=0x000000154d0a0c24 -t 10.1.9.140:6633
+    root      2006  0.0  0.0   3780   864 pts/0    S+   07:34   0:00 grep ofdpa
+
+Note that both ofdpa and indigo are up and running!
