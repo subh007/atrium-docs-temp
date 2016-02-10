@@ -8,10 +8,9 @@ There are 3 steps in configuring and running ONOS from the distribution VM
 
 A cell is simply a collection of environment variables used by onos scripts when launching onos. We use these to launch onos for different purposes - test or deployment, fabric or router etc.
 
-There are 3 cells provided with the distribution VM:
+There are 2 cells provided with the distribution VM for the fabric:
 * atrium_fabric
 * atrium_fabric_no_learn  
-* atrium_router
 
 If you wish to try the fabric with hardware switches, the correct cell is "atrium_fabric_no_learn". 
 
@@ -28,7 +27,7 @@ If you wish to try the fabric with hardware switches, the correct cell is "atriu
     ONOS_WEB_PASS=rocks
     ONOS_WEB_USER=onos
 
-In this mode, the the fabric control application does not learn the addresses of the end-hosts (rack-servers). The end-hosts addresses are either configured manually or programmed by an data-center orchestrator (like OpenStack). Currently the fabric lacks the support to automatically learn end-host addresses due to Issue # <>.
+In this mode, the fabric control application does **not** learn the addresses of the end-hosts (rack-servers). The end-hosts addresses are either configured manually or programmed by a data-center orchestrator (like OpenStack). Currently the fabric lacks the support to automatically learn end-host addresses due to Issue # <>.
 
 If you wish to try the fabric with software switches, you could either use the "atrium_fabric" or "atrium_fabric_no_learn" cells. The difference is that different apps are launched depending on the chosen cell.
 
@@ -47,6 +46,20 @@ If you wish to try the fabric with software switches, you could either use the "
 
 #### Create the network-cfg.json file
 
-This is in the ~/Applications/config/ directory of the distribution VM. 
+This is in the ~/Applications/config/ directory of the distribution VM. There are 3 sample network configuration files that have been provided for the fabric
+* network-cfg.json.fabric.hw
+* network-cfg.json.fabric.mn
+* network-cfg.json.fabric.nolearn.mn
+
+To configure ONOS, simply copy one of these samples to the network-cfg.json file
+    
+    admin@atrium16A:~$ cd Applications/config 
+    admin@atrium16A:~/Applications/config$ cp network-cfg.json.fabric.mn network-cfg.json
+
+To test with hardware switches use the "fabric.hw" config file. To test with mininet switches use the "fabric.nolearn.mn" config file. Finally, the software switches support learning, so we can also use the "fabric.mn" config file with them.
+
+Of course when using the "fabric.hw" config file, you will need to change the config to match your setup for switches and end hosts. See the [User Guide](https://github.com/onfsdn/atrium-docs/wiki/User-Guide-ONOS-Based-Fabric-16A) to understand how to change the config.
+
+
 
 
