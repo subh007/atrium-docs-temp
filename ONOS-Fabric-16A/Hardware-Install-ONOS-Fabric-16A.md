@@ -17,15 +17,37 @@ We use the [Indigo OF Agent](http://www.projectfloodlight.org/indigo/) from Big 
 
 ### Installation Guide
 
-1. Connect the switch's management port to your management network (with DHCP server). Power up the switch, ONIE comes pre-installed so you should be able to reach the ONIE prompt. ONIE automatically searches for a DHCP server, and DHCP would have assigned an IP address to the management port.
+1) Connect the switch's management port to your management network (with DHCP server). Power up the switch, ONIE comes pre-installed so you should be able to reach the ONIE prompt. ONIE automatically searches for a DHCP server, and DHCP would have assigned an IP address to the management port.
 
-2. While you can login to the switch using the management-IP assigned to it by your DHCP server, you will lose this capability in a couple of steps. So it helps to connect to the console port via a serial line (Baud-rate: 115200, dataBits:8, parity:none, stop-bits:1, flow-control:none).
+2) While you can login to the switch using the management-IP assigned to it by your DHCP server, you will lose this capability in a couple of steps. So it required as part of this installation to connect to the console port via a serial line (Baud-rate: 115200, dataBits:8, parity:none, stop-bits:1, flow-control:none).
 
-3. At the ONIE prompt, we need to get and install ONL. Depending on the switch model you are using we need to use different installers.  
+3) At the ONIE prompt, we need to get and install ONL. Depending on the switch model you are using we need to use different installers.  
     For powerpc based 5710, use the link: [[http://opennetlinux.org/binaries/latest-powerpc.installer]]  
     For x86 based 5712 and 6712, use the link: [[http://opennetlinux.org/binaries/latest-amd64.installer]]
 
-    `ONIE:/ # wget http://opennetlinux.org/binaries/latest-amd64.installer`  
-    `ONIE:/ # sh latest-amd64.installer`
+    ONIE:/ # wget http://opennetlinux.org/binaries/latest-amd64.installer
+    ONIE:/ # sh latest-amd64.installer
 
-4. 
+4) The switch should automatically reboot into ONL. Use the default _login:_**root** _password:_**onl** to get in.
+
+5) At this step you will find that the management IP from step 1 has been lost, which is why console access was required. Open /etc/network/interfaces to configure DHCP or a static-IP for the management port (which is now called ma1).
+
+    auto ma1
+    iface ma1 inet static
+        address 10.128.10.128
+        netmask 255.255.0.0
+        gateway 10.128.0.1
+        dns-nameservers 192.168.1.1 8.8.8.8
+
+6) Persist your config across reboots
+
+    # persist /etc/shadow; persist /etc/passwd; persist /etc/network/interfaces
+    # savepersist /persist/rootfs
+    # sync
+    # reboot  
+
+7) You should now be able to ssh into the switch. Install OFDPA + Indigo debian package which has been included in the Atrium Distribution VM.
+
+
+
+
