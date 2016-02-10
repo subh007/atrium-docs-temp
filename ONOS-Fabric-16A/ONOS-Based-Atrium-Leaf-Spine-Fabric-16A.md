@@ -20,4 +20,11 @@ If you don't have a hardware-switch, you could get started with a software switc
 
 Learn more about how the fabric works in the [System Architecture](https://github.com/onfsdn/atrium-docs/wiki/System-Architecture-ONOS-Based-Fabric-16A) section.
 
+### Contributors
+
+* Saurav Das (ONF)
+* Charles Min-Cheng Chan (ON.Lab)
+* Flavio Augusto De Castro Junior (ON.Lab)
+* Deepthi Vemu, Joe Tardo & Broadcom Team
+* Wally Wang, Jeff Catlin & Accton/EdgeCore Team
 
