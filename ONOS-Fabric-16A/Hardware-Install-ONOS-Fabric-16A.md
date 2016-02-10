@@ -28,9 +28,9 @@ We use the [Indigo OF Agent](http://www.projectfloodlight.org/indigo/) from Big 
     ONIE:/ # wget http://opennetlinux.org/binaries/latest-amd64.installer
     ONIE:/ # sh latest-amd64.installer
 
-4) The switch should automatically reboot into ONL. Use the default _login:_**root** _password:_**onl** to get in.
+4) The switch should automatically reboot into ONL. At this step you will find that the management IP from step 1 has been lost, which is why console access was required. Use the default _login:_**root** _password:_**onl** to get in.
 
-5) At this step you will find that the management IP from step 1 has been lost, which is why console access was required. Open /etc/network/interfaces to configure DHCP or a static-IP for the management port (which is now called ma1).
+5)  Open /etc/network/interfaces to configure DHCP or a static-IP for the management port (which is now called ma1).
 
     auto ma1
     iface ma1 inet static
