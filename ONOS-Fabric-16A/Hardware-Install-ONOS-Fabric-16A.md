@@ -13,3 +13,6 @@ The OS to install on the Hardware Switch comes from the Open Compute Project. Mo
 
 ##### Indigo OpenFlow Agent
 
+We use the [Indigo OF Agent](http://www.projectfloodlight.org/indigo/) from Big Switch Networks, with modifications made by Broadcom to map to OF-DPA API.
+
+### Installation Guide
