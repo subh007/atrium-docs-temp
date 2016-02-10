@@ -16,3 +16,15 @@ For software switches emulating OF-DPA, we use the
                 hwVersion="OF1.3 Software Switch from CPqD" swVersion="for Group Chaining">
         
 Note that when using software switches, ONOS needs to be told which driver to use. This is done via the "devices" configuration in the ~/Applications/config/network-cfg.json file in the Atrium-ONOS distribution VM
+
+### Quick Start
+
+To quickly get started with software switches, follow the recipe below to launch ONOS
+
+    admin@atrium16A:~$ cell atrium_fabric_no_learn
+    admin@atrium16A:~$ cp Applications/config/network-cfg.json.fabric.nolearn.mn Applications/config/network-cfg.json
+    admin@atrium16A:~$ ok clean
+
+From a different shell, start the script to launch Mininet with the software-switches and end-hosts.
+
+    admin@atrium16A:~$ sudo ./fabric-test.py
