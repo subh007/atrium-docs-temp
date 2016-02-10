@@ -36,6 +36,9 @@ Once in, try to ping the outside world as a sanity check (`ping www.cnn.com`).
 The Atrium_ONOS_2016_A.ova file is simply a tar file containing the disk image (vmdk file) and some configuration (ovf file). Most server virtualization software can directly run the vmdk file. However, most people prefer to run qcow2 format in servers. First untar the ova file
 
 `$ tar xvf Atrium_ONOS_2016_A.ova`
+
 Use the following command to convert the vmdk file to qcow2. You can then use your server's virtualization software to create a VM using the qcow2 image.
 
 `$ qemu-img convert -f vmdk Atrium_ONOS_2016_A-disk1.vmdk -O qcow2 Atrium_ONOS_2016_A-disk1.qcow2`
+
+
