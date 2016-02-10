@@ -1,5 +1,5 @@
 ### Hardware Switches
-In principle any hardware switch that supports OF-DPA should work. However, in this release only a specific build of OF-DPA is certified to work for this fabric. In the near future, when OF-DPA 2.0 is GA and publicly available we will release a version of the fabric for the GA code. Right now, we provide a binary that you can load on your switch -- one of [Accton/EdgeCore 5710, 5712 or 6712 models](http://www.edge-core.com/prodcat.asp?c=1). These switches come pre-installed with ONIE (from the OCP project).
+In principle any hardware switch that supports OF-DPA should work. However, in this release only a specific build of OF-DPA is certified to work for this fabric. In the near future, when OF-DPA 2.0 is GA and publicly available we will release a version of the fabric for the GA code. Right now, we provide a binary that you can load on your switch -- one of [Accton/EdgeCore 5710, 5712 or 6712 models](http://www.edge-core.com/prodcat.asp?c=1). These switches come pre-installed with [ONIE](http://onie.org/) (from the OCP project).
 
 ### Software Components to Install on Hardware Switches
 The following software needs to be installed on the Accton switches.
@@ -13,6 +13,19 @@ The OS to install on the Hardware Switch comes from the Open Compute Project. Mo
 
 ##### Indigo OpenFlow Agent
 
-We use the [Indigo OF Agent](http://www.projectfloodlight.org/indigo/) from Big Switch Networks, with modifications made by Broadcom to map to OF-DPA API.
+We use the [Indigo OF Agent](http://www.projectfloodlight.org/indigo/) from Big Switch Networks, with modifications made by Broadcom to map to the OF-DPA API.
 
 ### Installation Guide
+
+1. Connect the switch's management port to your management network (with DHCP server). Power up the switch, ONIE comes pre-installed so you should be able to reach the ONIE prompt. ONIE automatically searches for a DHCP server, and DHCP would have assigned an IP address to the management port.
+
+2. While you can login to the switch using the management-IP assigned to it by your DHCP server, you will lose this capability in a couple of steps. So it helps to connect to the console port via a serial line (Baud-rate: 115200, dataBits:8, parity:none, stop-bits:1, flow-control:none).
+
+3. At the ONIE prompt, we need to get and install ONL. Depending on the switch model you are using we need to use different installers.  
+    For powerpc based 5710, use the link: [[http://opennetlinux.org/binaries/latest-powerpc.installer]]  
+    For x86 based 5712 and 6712, use the link: [[http://opennetlinux.org/binaries/latest-amd64.installer]]
+
+    `ONIE:/ # wget http://opennetlinux.org/binaries/latest-amd64.installer`  
+    `ONIE:/ # sh latest-amd64.installer`
+
+4. 
