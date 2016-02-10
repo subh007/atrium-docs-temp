@@ -15,3 +15,4 @@ For software switches emulating OF-DPA, we use the
                 manufacturer="ONF"
                 hwVersion="OF1.3 Software Switch from CPqD" swVersion="for Group Chaining">
         
+Note that when using software switches, ONOS needs to be told which driver to use. This is done via the "devices" configuration in the ~/Applications/config/network-cfg.json file in the Atrium-ONOS distribution VM
