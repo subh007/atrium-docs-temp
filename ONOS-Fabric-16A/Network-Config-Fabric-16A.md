@@ -6,3 +6,24 @@ In this section, we describe how to configure the fabric on ONOS using the netwo
 
 In ONOS, applications typically require configuration for external facing interfaces (external to the SDN island), to interface and interact with the outside world.
 
+    
+    "ports" : {
+	  "of:0000000000000001/3" : {
+	     "interfaces" : [
+		    {
+		      "ips" : [ "10.0.1.254/24" ],
+		      "mac" : "00:00:00:00:01:80",
+		      "vlan": "-1"
+		    }
+	     ]
+	  },
+	  "of:0000000000000001/4" : {
+	     "interfaces" : [
+	 	    {
+		      "ips" : [ "10.0.1.254/24" ],
+		      "mac" : "00:00:00:00:01:80",
+		      "vlan": "-1"
+		    }
+	     ]
+	  }
+    }
