@@ -1,5 +1,16 @@
 ### Accton Configuration
 
+By default, on the 6712, all 32 ports are running in 40G mode. Similarly on the 5710 and 5712, the 48 ports are running in 10G mode. The port speed settings can be changed to 1G, 10G, 40G, or 4x10G depending on the port.
+
+The `/etc/accton/ofdpa.conf` file needs to be modified to change the port speed.
+
+Restart ofdpa service after modifying the config
+
+    # service ofdpa restart
+    # persist /etc/accton/ofdpa.conf
+    # savepersist 
+
+
 
 ### OF-DPA Client Programs
 
@@ -7,7 +18,7 @@ OF-DPA comes with a set of utility programs for debugging support. They can be f
 
     root@onl-x86:~# ls -l /usr/bin/ofdpa-i.12.1.1/examples/
 
-The most useful ones for this release include the ability to see the flows and groups that are installed in the switch using client_flowtable_dump
+The most useful ones for this release include the ability to see the flows and groups that are installed in the switch. Add this directory to your $PATH environment variable to access these programs from anywhere.
 
     root@onl-powerpc:~# client_flowtable_dump 
     Table ID 10 (VLAN):   Retrieving all entries. Max entries = 16384, Current entries = 6.
@@ -53,7 +64,9 @@ and client_grouptable_dump
     groupId = 0x20000018 (L3 Unicast, Index = 24): duration: 614, refCount:1
 	bucketIndex = 0: referenceGroupId = 0x0ffe0018 vlanId = 4094 srcMac: A2:9B:32:9D:7F:B3 dstMac: 92:4D:DA:D8:23:34 
 
-Occasionally, during debugging, it may be necessary to remove all flows and groups in the switch before starting the OF client to connect to the controller. This is because the client does not take into account the flows that are already in the ASIC, and assumes the forwarding tables are empty at the time of connection to the controller. Emptying out the tables is done with `client_cfg_purge`
+Occasionally, during debugging, it may be necessary to remove all flows and groups in the switch before starting the OF client to connect to the controller. This is because the client does not take into account the flows that are already in the ASIC, and assumes the forwarding tables are empty at the time of connection to the controller. 
+
+Emptying out the tables is done with `client_cfg_purge`
 
 
 
