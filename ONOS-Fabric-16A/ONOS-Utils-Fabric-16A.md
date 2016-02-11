@@ -107,5 +107,5 @@ In addition the individual flows and groups from any switch can be queried from 
 
 The flows, groups and portstats commands include stats that update periodically (typically every 5 secs). You can change the periodicity of flow-stats collection with the command
 
-`onos> cfg set org.onosproject.provider.of.flow.impl.OpenFlowRuleProvider flowPollFrequency 10`
+    onos> cfg set org.onosproject.provider.of.flow.impl.OpenFlowRuleProvider flowPollFrequency 10
 
