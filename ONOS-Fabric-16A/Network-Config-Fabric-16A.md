@@ -69,3 +69,8 @@ Host config identifies hosts via the MAC-address/VLAN-id tuple. In the example b
             }
          }
     }
+
+
+#### Configuring Apps
+
+In this release of the fabric, no other configuration is required. The sample files may include `"apps"` config for other apps but they are ignored by the fabric-control application.
