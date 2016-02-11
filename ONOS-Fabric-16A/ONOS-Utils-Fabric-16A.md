@@ -1,5 +1,7 @@
 ### ONOS CLI
 
+Continuing the example from the config page, there are a number of ONOS cli commands that can be used to diagnose the state of the system.
+
     onos> devices
     id=of:0000000000000001, available=true, role=MASTER, type=SWITCH, mfr=Stanford University, Ericsson Research and CPqD        Research, hw=OpenFlow 1.3 Reference Userspace Switch, sw=May 21 2015 08:32:26, serial=1, managementAddress=127.0.0.1, protocol=OF_13, driver=ofdpa-cpqd, name=of:0000000000000001, channelId=127.0.0.1:49103
     id=of:0000000000000002, available=true, role=MASTER, type=SWITCH, mfr=Stanford University, Ericsson Research and CPqD Research, hw=OpenFlow 1.3 Reference Userspace Switch, sw=May 21 2015 08:32:26, serial=1, managementAddress=127.0.0.1, protocol=OF_13, driver=ofdpa-cpqd, name=of:0000000000000002, channelId=127.0.0.1:49102
