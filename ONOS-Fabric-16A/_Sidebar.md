@@ -7,7 +7,7 @@
     + [Software Switches](https://github.com/onfsdn/atrium-docs/wiki/Software-Install-ONOS-Fabric-16A)
 * [User Guide](https://github.com/onfsdn/atrium-docs/wiki/User-Guide-ONOS-Based-Fabric-16A)
     + [Network Config](https://github.com/onfsdn/atrium-docs/wiki/Network-Config-Fabric-16A)
-    + [ONOS Commands](https://github.com/onfsdn/atrium-docs/wiki/ONOS-Commands-Fabric-16A)
+    + [ONOS Utils](https://github.com/onfsdn/atrium-docs/wiki/ONOS-Utils-Fabric-16A)
     + [Switch Utils](https://github.com/onfsdn/atrium-docs/wiki/Switch-Utils-Fabric-16A)
 * [System Architecture](https://github.com/onfsdn/atrium-docs/wiki/System-Architecture-ONOS-Based-Fabric-16A)
 
