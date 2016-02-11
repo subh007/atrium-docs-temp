@@ -1,6 +1,6 @@
 ### Atrium Contents
 * [Home](https://github.com/onfsdn/atrium-docs/wiki)
-* [Introduction](https://github.com/onfsdn/atrium-docs/wiki/ONOS-Based-Atrium-Leaf-Spine-Fabric-16A)
+* [Introduction: Fabric](https://github.com/onfsdn/atrium-docs/wiki/ONOS-Based-Atrium-Leaf-Spine-Fabric-16A)
 * [Installation Guide](https://github.com/onfsdn/atrium-docs/wiki/Installation-Guide-ONOS-Based-Fabric-16A)
     + [Configuring ONOS](https://github.com/onfsdn/atrium-docs/wiki/Configuring-ONOS-Fabric-16A)
     + [Hardware Switches](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Fabric-16A)
