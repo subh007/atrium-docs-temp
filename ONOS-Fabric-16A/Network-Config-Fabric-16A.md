@@ -55,7 +55,9 @@ The `"name"` can be anything you want but it is prudent to name the switch after
     }
 
 
-hosts
+# Configuring Hosts
+
+End host config (servers) is **necessary** when using hardware switches. This is because in this release the ofdpa lacks the functionality to "learn" the location and addresses of end-hosts (Issue #). When using software switches, end-host configuration is necessary when in "no-learn" mode (see [here](https://github.com/onfsdn/atrium-docs/wiki/Configuring-ONOS-Fabric-16A)), but should be omitted when in learning mode.
 
     "hosts" : {
         "00:00:00:00:00:01/-1" : {
