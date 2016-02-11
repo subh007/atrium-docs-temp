@@ -30,7 +30,7 @@ Note that the fabric is designed such that the leaf-switch (Top-of-Rack switch) 
     }
 
 
-devices
+### Configuring Devices
 
     "devices" : {
 	  "of:0000000000000001" : {
