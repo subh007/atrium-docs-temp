@@ -27,3 +27,34 @@ In ONOS, applications typically require configuration for external facing interf
 	     ]
 	  }
     }
+
+
+devices
+
+    "devices" : {
+	  "of:0000000000000001" : {
+	        "basic" : {
+	          "driver" : "ofdpa-cpqd"
+	        },
+    	    "segmentrouting" : {
+                "name" : "Leaf-R1",
+                "nodeSid" : 101,
+                "routerIp" : "192.168.0.101",
+                "routerMac" : "00:00:00:00:01:80",
+                "isEdgeRouter" : true,
+                "adjacencySids" : []
+            }
+    	}
+    }
+
+
+hosts
+
+    "hosts" : {
+        "00:00:00:00:00:01/-1" : {
+            "basic": {
+                "ips": ["10.0.1.1"],
+                "location": "of:0000000000000001/3"
+            }
+         }
+    }
