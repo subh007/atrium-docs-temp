@@ -7,6 +7,16 @@ Continuing the example from the config page, there are a number of ONOS cli comm
     id=of:0000000000000002, available=true, role=MASTER, type=SWITCH, mfr=Stanford University, Ericsson Research and CPqD Research, hw=OpenFlow 1.3 Reference Userspace Switch, sw=May 21 2015 08:32:26, serial=1, managementAddress=127.0.0.1, protocol=OF_13, driver=ofdpa-cpqd, name=of:0000000000000002, channelId=127.0.0.1:49102
     id=of:0000000000000191, available=true, role=MASTER, type=SWITCH, mfr=Stanford University, Ericsson Research and CPqD Research, hw=OpenFlow 1.3 Reference Userspace Switch, sw=May 21 2015 08:32:26, serial=1, managementAddress=127.0.0.1, protocol=OF_13, driver=ofdpa-cpqd, name=of:0000000000000191, channelId=127.0.0.1:49105   
     id=of:0000000000000192, available=true, role=MASTER, type=SWITCH, mfr=Stanford University, Ericsson Research and CPqD Research, hw=OpenFlow 1.3 Reference Userspace Switch, sw=May 21 2015 08:32:26, serial=1, managementAddress=127.0.0.1, protocol=OF_13, driver=ofdpa-cpqd, name=of:0000000000000192, channelId=127.0.0.1:49104
+    onos> 
+    onos> links
+    src=of:0000000000000191/2, dst=of:0000000000000002/1, type=DIRECT, state=ACTIVE, expected=false
+    src=of:0000000000000192/2, dst=of:0000000000000002/2, type=DIRECT, state=ACTIVE, expected=false
+    src=of:0000000000000191/1, dst=of:0000000000000001/1, type=DIRECT, state=ACTIVE, expected=false
+    src=of:0000000000000192/1, dst=of:0000000000000001/2, type=DIRECT, state=ACTIVE, expected=false
+    src=of:0000000000000002/1, dst=of:0000000000000191/2, type=DIRECT, state=ACTIVE, expected=false
+    src=of:0000000000000002/2, dst=of:0000000000000192/2, type=DIRECT, state=ACTIVE, expected=false
+    src=of:0000000000000001/1, dst=of:0000000000000191/1, type=DIRECT, state=ACTIVE, expected=false
+    src=of:0000000000000001/2, dst=of:0000000000000192/1, type=DIRECT, state=ACTIVE, expected=false
     onos> hosts
     id=00:00:00:00:00:01/-1, mac=00:00:00:00:00:01, location=of:0000000000000001/3, vlan=-1, ip(s)=[10.0.1.1], name=00:00:00:00:00:01/-1
     id=00:00:00:00:00:02/-1, mac=00:00:00:00:00:02, location=of:0000000000000001/4, vlan=-1, ip(s)=[10.0.1.2], name=00:00:00:00:00:02/-1
@@ -109,3 +119,11 @@ The flows, groups and portstats commands include stats that update periodically 
 
     onos> cfg set org.onosproject.provider.of.flow.impl.OpenFlowRuleProvider flowPollFrequency 10
 
+
+### ONOS GUI
+
+The ONOS GUI can be rendered by pointing any browser to the controller, using the following url.
+
+    http://<Ip-Addr-of-Controller>:8181/onos/ui/
+
+Remember, if your controller VM is NATted, you'll have to port-forward TCP 8181. This should bring up the fabric topology.
