@@ -43,7 +43,7 @@ Try to ping from each host to every other host using the mininet "pingall" comma
 	h4 -> h1 h2 h3 
 	*** Results: 0% dropped (12/12 received)
 
-In this example communication between h1 and h2, and between h3 and h4 is being L2 switched (bridged) in the OF-DPA pipeline, emulation the communication within a rack of servers. Communication between racks (h1-h4 or h3-h2 for example) is routed. The best way to what flows have been programmed in the switches, is to use the "flows" command on the ONOS cli.
+In this example, communication between h1 and h2, and between h3 and h4 is being L2 switched (bridged) in the OF-DPA pipeline, emulating the communication within a rack of servers, as the entire rack is in the same subnet. Communication between racks (h1-h4 or h3-h2 for example) is routed as it is communication between subnets. The best way to what flows have been programmed in the switches, is to use the "flows" command on the ONOS cli.
 
 You can also get "in" to the network-namespace for each host or switch in this network. Use the mininet utility to do so.
 
@@ -89,4 +89,6 @@ The example below shows getting in to mininet:h1 and pinging h4
 	--- 10.0.2.2 ping statistics ---
 	3 packets transmitted, 3 received, 0% packet loss, time 2002ms
 	rtt min/avg/max/mdev = 2.569/3.054/3.306/0.349 ms
+
+Head over to the [User Guide](https://github.com/onfsdn/atrium-docs/wiki/User-Guide-ONOS-Based-Fabric-16A) to learn more.
  
