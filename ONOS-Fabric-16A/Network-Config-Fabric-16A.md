@@ -4,7 +4,7 @@ In this section, we describe how to configure the fabric on ONOS using the netwo
 
 #### Configuring Interfaces
 
-In ONOS, applications typically require configuration for external facing interfaces (external to the SDN island), to interface and interact with the outside world.
+In ONOS, applications typically require configuration for external facing ports (external to the SDN island), to interact with the outside world.
 
     
     "ports" : {
