@@ -55,9 +55,11 @@ The `"name"` can be anything you want but it is prudent to name the switch after
     }
 
 
-# Configuring Hosts
+#### Configuring Hosts
 
 End host config (servers) is **necessary** when using hardware switches. This is because in this release the ofdpa lacks the functionality to "learn" the location and addresses of end-hosts (Issue #). When using software switches, end-host configuration is necessary when in "no-learn" mode (see [here](https://github.com/onfsdn/atrium-docs/wiki/Configuring-ONOS-Fabric-16A)), but should be omitted when in learning mode.
+
+Host config identifies hosts via the MAC-address/VLAN-id tuple. In the example below, the MAC address of the host-server is `"00:00:00:00:00:01"` and the vlan-id is `-1` for untagged. The `basic` host config includes a set of IP addresses for the host, and the location of the server with respect to the switch it connects to - in this example, the host is connected to switch 0x1 of physical port 3.
 
     "hosts" : {
         "00:00:00:00:00:01/-1" : {
