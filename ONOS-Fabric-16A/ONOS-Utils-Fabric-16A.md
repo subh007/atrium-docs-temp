@@ -1,6 +1,6 @@
 ### ONOS CLI
 
-Continuing the example from the config page, there are a number of ONOS cli commands that can be used to diagnose the state of the system.
+Continuing the example from the config page, there are a number of ONOS cli commands that can be used to diagnose the state of the system, most of which are self-explanatory.
 
     onos> devices
     id=of:0000000000000001, available=true, role=MASTER, type=SWITCH, mfr=Stanford University, Ericsson Research and CPqD        Research, hw=OpenFlow 1.3 Reference Userspace Switch, sw=May 21 2015 08:32:26, serial=1, managementAddress=127.0.0.1, protocol=OF_13, driver=ofdpa-cpqd, name=of:0000000000000001, channelId=127.0.0.1:49103
@@ -87,4 +87,25 @@ Continuing the example from the config page, there are a number of ONOS cli comm
     onos> 
     onos> 
     onos> 
+
+
+In addition the individual flows and groups from any switch can be queried from the CLI.
+
+    onos> flows any of:0000000000000001
+    deviceId=of:0000000000000001, flowRuleCount=36
+    id=4500004642a9bd, state=ADDED, bytes=461632, packets=5693, duration=4330, priority=0, tableId=0, appId=org.onosproject.driver.OFDPA2Pipeline, payLoad=null, selector=[], treatment=DefaultTrafficTreatment{immediate=[], deferred=[], transition=TABLE:10, cleared=false, metadata=null}
+    id=3800004824290b, state=ADDED, bytes=227788, packets=2810, duration=4330, priority=32768, tableId=10, appId=org.onosproject.segmentrouting, payLoad=null, selector=[IN_PORT:1, VLAN_VID:-1], treatment=DefaultTrafficTreatment{immediate=[VLAN_PUSH:vlan, VLAN_ID:4094], deferred=[], transition=TABLE:20, cleared=false, metadata=null}
+    id=3800004824292a, state=ADDED, bytes=227770, packets=2810, duration=4330, priority=32768, tableId=10, appId=org.onosproject.segmentrouting, payLoad=null, selector=[IN_PORT:2, VLAN_VID:-1], treatment=DefaultTrafficTreatment{immediate=[VLAN_PUSH:vlan, VLAN_ID:4094], deferred=[], transition=TABLE:20, cleared=false, metadata=null}
+    <snip>
+
+    onos> groups
+    deviceId=of:0000000000000001, groupCount=19
+    id=0x90000001, state=ADDED, type=INDIRECT, bytes=1224, packets=12, appId=org.onosproject.segmentrouting
+    id=0x90000001, bucket=1, bytes=1224, packets=12, actions=[ETH_DST:00:00:01:00:05:80, ETH_SRC:00:00:00:00:01:80, VLAN_ID:4094, GROUP:ffe0001]
+    id=0x90000002, state=ADDED, type=INDIRECT, bytes=1224, packets=12, appId=org.onosproject.segmentrouting
+    <snip>
+
+The flows, groups and portstats commands include stats that update periodically (typically every 5 secs). You can change the periodicity of flow-stats collection with the command
+
+`onos> cfg set org.onosproject.provider.of.flow.impl.OpenFlowRuleProvider flowPollFrequency 10`
 
