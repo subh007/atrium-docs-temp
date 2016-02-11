@@ -129,4 +129,9 @@ The ONOS GUI can be rendered by pointing any browser to the controller, using th
 Remember, if your controller VM is NATted, you'll have to port-forward TCP 8181. This should bring up the fabric topology.
 
 ![](https://github.com/onfsdn/atrium-docs/blob/master/16A/ONOS/pics/fab1.png)
+
+The GUI also displays flows, groups and port-stats which automatically refresh.
+
 ![](https://github.com/onfsdn/atrium-docs/blob/master/16A/ONOS/pics/fabflows.png)
+
+For more on the GUI, visit [ONOS Web GUI](https://wiki.onosproject.org/display/ONOS/The+ONOS+Web+GUI)
