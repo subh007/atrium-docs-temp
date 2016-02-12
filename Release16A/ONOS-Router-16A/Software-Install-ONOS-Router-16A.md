@@ -40,3 +40,8 @@ From a different shell, start the script to launch Mininet with the software-swi
 This will bring up the setup shown below
 
 ![](https://github.com/onfsdn/atrium-docs/blob/master/16A/ONOS/pics/topoR.png)
+
+There are a few things to note here:
+* While the picture shows the expected way to deploy the Atrium router with the router-deploy.py script, the script we just launched (router_test.py) creates everything you see in the picture within the Atrium  Distribution VM.
+* The router-test.py script launches the "Dataplane Switch" using the CPqD software switch. Use the "driver" configuration in network-cfg.json to set 
+
