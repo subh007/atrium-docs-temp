@@ -1,6 +1,6 @@
 ### Atrium Contents
 * [Home](https://github.com/onfsdn/atrium-docs/wiki)
-* **Atrium Release 15A**
+* **Atrium Release 2015/A**
     - [Introduction](https://github.com/onfsdn/atrium-docs/wiki/Introduction-(15A))
     - [Release Notes](https://github.com/onfsdn/atrium-docs/wiki/Release-Notes-15A)
     - [Installation Guide](https://github.com/onfsdn/atrium-docs/wiki/Installation-Guide-(15A))
