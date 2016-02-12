@@ -42,6 +42,6 @@ Use the following command to convert the vmdk file to qcow2. You can then use yo
     $ qemu-img convert -f vmdk Atrium_ONOS_2016_A-disk1.vmdk -O qcow2 Atrium_ONOS_2016_A-disk1.qcow2
 
 
-### Installation 
+### Router Installation 
 
 Check out the rest of the installation guide for [configuring and running ONOS](https://github.com/onfsdn/atrium-docs/wiki/Configuring-ONOS-Router-16A) and then either using a [NoviFlow or Accton hardware switch](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Router-16A) as the router dataplane, or using [a software switch to emulate  hardware](https://github.com/onfsdn/atrium-docs/wiki/Software-Install-ONOS-Router-16A). 
