@@ -43,5 +43,9 @@ This will bring up the setup shown below
 
 There are a few things to note here:
 * While the picture shows the expected way to deploy the Atrium router with the router-deploy.py script, the script we just launched (router_test.py) creates everything you see in the picture within the Atrium  Distribution VM.
-* The router-test.py script launches the "Dataplane Switch" using the CPqD software switch. Use the "driver" configuration in network-cfg.json to set 
+* The router-test.py script launches the "Dataplane Switch" using the CPqD software switch. Use the "driver" configuration in network-cfg.json to set "softrouter" for NoviFlow emulation, or "ofdpa-cpqd-vlan" for Accton emulation.
+* The router-test.py creates 3 physical (dataplane) interfaces on the CPqD switch
+    * port 1 is configured 192.168.10.101 and connected to an external router "peer 1" on vlan 100.
+    * port 2 is configured 192.168.20.101 and connected to another external router "peer 2" on an untagged interface.
+    * port 3 is a dataplane interface that is used for a different purpose connecting to the Quagga host that "speaks" the control protocols BGP, OSPF etc. See [here](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Router-16A#special-requirements-for-hardware-switches) for details.
 
