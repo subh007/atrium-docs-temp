@@ -47,10 +47,15 @@ It is easy to launch onos. Simply type
 
 or you may also choose to launch onos within a tmux session as described [here](https://github.com/onfsdn/atrium-docs/wiki/Configure-and-run-ONOS-15A#launching-onos-for-deployment).
 
-Now you can connect the fabric hardware-switches to ONOS (if you configured ONOS for them) as described in the [Hardware Switches](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Fabric-16A) section.
+Now you can choose to work with a hardware-switch or a software-switch, depending on the config you made in the previous step. If you chose to work with a software-switch, run the following script (either from a different shell from your ONOS shell, or a different window/pane in your tmux session). 
 
-Or if you wish to work with software switches, run the following script (either from a different shell from your ONOS shell, or a different window/pane in your tmux session)
+    admin@atrium16A:~$ sudo ./router-test.py
 
-    admin@atrium16A:~$ sudo ./fabric-test.py
+This script will bring up everything you need to test the router including the router-dataplane, Quagga, peer-routers and end-hosts. See the [Software Switches](https://github.com/onfsdn/atrium-docs/wiki/Software-Install-ONOS-Router-16A) section to understand what the script does and what you can expect to see in ONOS.
 
-See the [Software Switches](https://github.com/onfsdn/atrium-docs/wiki/Software-Install-ONOS-Fabric-16A) section to understand what the script does and what you can expect to see in ONOS.
+To work with a hardware switch (either Accton or NoviFlow in this release), you need to use a different script that will just bring up Quagga and connect to ONOS using the Quagga FPM protocol. 
+
+    admin@atrium16A:~$ sudo ./router-deploy.py
+
+You will now need to connect your hardware switch to the controller and Quagga. There are some special requirements for doing so that are described in the [Hardware Switches](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Router-16A) installation guide.
+
