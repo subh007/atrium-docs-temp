@@ -1,4 +1,4 @@
-For the ONOS based router in Atrium Release 2016/A, you have two choices: [Accton/EdgeCore](http://www.edge-core.com/prodcat.asp?c=1) or [NoviFlow](http://noviflow.com/products/noviswitch/). First follow the guide below for setting up the switch of your choice. Then ensure that you wire up the hardware switch correctly, by following the [special requirements]().
+For the ONOS based router in Atrium Release 2016/A, you have two choices: [Accton/EdgeCore](http://www.edge-core.com/prodcat.asp?c=1) or [NoviFlow](http://noviflow.com/products/noviswitch/). First follow the guide below for setting up the switch of your choice. Then ensure that you wire up the hardware switch correctly, by following the [special requirements](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Router-16A#special-requirements-for-hardware-switches).
 
 
 ### NoviFlow Installation
