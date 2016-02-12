@@ -28,19 +28,16 @@ There is a single cell provided with the distribution VM for the router: **atriu
 
 #### Create the network-cfg.json file
 
-This is in the ~/Applications/config/ directory of the distribution VM. There are 3 sample network configuration files that have been provided for the fabric
-* network-cfg.json.fabric.hw
-* network-cfg.json.fabric.mn
-* network-cfg.json.fabric.nolearn.mn
+This is in the ~/Applications/config/ directory of the distribution VM. There are 2 sample network configuration files that have been provided for the fabric
+* network-cfg.json.router.hw
+* network-cfg.json.router.mn
 
 To configure ONOS, simply copy one of these samples to the network-cfg.json file
     
     admin@atrium16A:~$ cd Applications/config 
-    admin@atrium16A:~/Applications/config$ cp network-cfg.json.fabric.mn network-cfg.json
+    admin@atrium16A:~/Applications/config$ cp network-cfg.json.router.mn network-cfg.json
 
-To test with hardware switches use the "fabric.hw" config file. To test with mininet switches use the "fabric.nolearn.mn" config file. Finally, the software switches support learning, so we can also use the "fabric.mn" config file with them.
-
-Of course when using the "fabric.hw" config file, you will need to change the config to match your setup for switches and end hosts. See the [User Guide](https://github.com/onfsdn/atrium-docs/wiki/User-Guide-ONOS-Based-Fabric-16A) to understand how to change the config.
+To test with a hardware switch, use the "router.hw" config file. To test with a software switch  use the "router.mn" config file. Of course when using the "router.hw" config file, you will need to change the config to match your setup for switches and peers. See the [User Guide](https://github.com/onfsdn/atrium-docs/wiki/User-Guide-ONOS-Based-Router-16A) to understand how to change the config. The "router.mn" config file has been created to work with the router-test.py test script, which we describe next.
 
 #### Use the correct launch script
 
