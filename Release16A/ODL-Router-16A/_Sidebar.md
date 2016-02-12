@@ -3,7 +3,7 @@
 * **Atrium Release 2016/A**
     + [Overview](https://github.com/onfsdn/atrium-docs/wiki/Overview-16A)
     + [Release Notes](https://github.com/onfsdn/atrium-docs/wiki/Release-Notes-16A)
-    + ** ODL Based Router **
+    + **ODL Based Router**
         - [Introduction](https://github.com/onfsdn/atrium-docs/wiki/ODL-Based-Atrium-Router-16A)
         - [Installation Guide](https://github.com/onfsdn/atrium-docs/wiki/Installation-Guide-ODL-Based-Router-16A)
         - [User Guide](https://github.com/onfsdn/atrium-docs/wiki/User-Guide-ODL-Based-Router-16A)

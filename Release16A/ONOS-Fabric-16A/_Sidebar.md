@@ -5,7 +5,7 @@
     + [Release Notes](https://github.com/onfsdn/atrium-docs/wiki/Release-Notes-16A)
     + [ODL Based Router](https://github.com/onfsdn/atrium-docs/wiki/ODL-Based-Atrium-Router-16A)
     + [ONOS Based Router](https://github.com/onfsdn/atrium-docs/wiki/ONOS-Based-Atrium-Router-16A)
-    + ** ONOS Based Leaf-Spine Fabric **
+    + **ONOS Based Leaf-Spine Fabric**
         - [Introduction: Fabric](https://github.com/onfsdn/atrium-docs/wiki/ONOS-Based-Atrium-Leaf-Spine-Fabric-16A)
         - [Installation Guide](https://github.com/onfsdn/atrium-docs/wiki/Installation-Guide-ONOS-Based-Fabric-16A)
             + [Configuring ONOS](https://github.com/onfsdn/atrium-docs/wiki/Configuring-ONOS-Fabric-16A)
