@@ -1,4 +1,4 @@
-For the ONOS based router in Atrium Release 2016/A, you have two choices: [Accton/EdgeCore](http://www.edge-core.com/prodcat.asp?c=1) or [NoviFlow](http://noviflow.com/products/noviswitch/).
+For the ONOS based router in Atrium Release 2016/A, you have two choices: [Accton/EdgeCore](http://www.edge-core.com/prodcat.asp?c=1) or [NoviFlow](http://noviflow.com/products/noviswitch/). First follow the guide below for setting up the switch of your choice. Then ensure that you wire up the hardware switch correctly, by following the [special requirements]().
 
 
 ### NoviFlow Installation
@@ -50,3 +50,4 @@ If you connect dataplane ports to one of those with a blue label on the front pa
 
 For the Atrium router on ONOS, we have certified Accton switch models# 5710, 5712 and 6712. The installation (which is the same for router or fabric) is described [here](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Fabric-16A).
 
+### Special Requirements for Hardware Switches
