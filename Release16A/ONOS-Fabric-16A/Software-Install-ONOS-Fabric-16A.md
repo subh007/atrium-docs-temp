@@ -9,7 +9,7 @@ For hardware switches based on OF-DPA, we use the regular "ofdpa" driver
      <driver name="ofdpa" extends="default"
                 manufacturer="Broadcom Corp." hwVersion="OF-DPA.*" swVersion="OF-DPA.*">
 
-For software switches emulating OF-DPA, we use the "ofdpa-cpqd" driver
+For software switches emulating OF-DPA for the **fabric**, we use the "ofdpa-cpqd" driver
 
      <driver name="ofdpa-cpqd" extends="default"
                 manufacturer="ONF"
