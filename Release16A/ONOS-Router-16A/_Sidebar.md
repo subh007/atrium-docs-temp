@@ -4,7 +4,7 @@
     + [Overview](https://github.com/onfsdn/atrium-docs/wiki/Overview-16A)
     + [Release Notes](https://github.com/onfsdn/atrium-docs/wiki/Release-Notes-16A)
     + [ODL Based Router](https://github.com/onfsdn/atrium-docs/wiki/ODL-Based-Atrium-Router-16A)
-    + ** ONOS Based Router **
+    + **ONOS Based Router**
         - [Introduction](https://github.com/onfsdn/atrium-docs/wiki/ONOS-Based-Atrium-Router-16A)
         - [Installation Guide](https://github.com/onfsdn/atrium-docs/wiki/Installation-Guide-ONOS-Based-Router-16A)
         - [User Guide](https://github.com/onfsdn/atrium-docs/wiki/User-Guide-ONOS-Based-Router-16A)
