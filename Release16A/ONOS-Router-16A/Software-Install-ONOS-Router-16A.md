@@ -14,15 +14,22 @@ For the CPqD switch emulating OF-DPA for the **router**, we use the "ofdpa-cpqd-
      <driver name="ofdpa-cpqd-vlan" extends="default"
                 manufacturer="ONF"
                 hwVersion="OF1.3 Software Switch from CPqD" swVersion="for Group Chaining">
-        
+      
+For the hardware NoviFlow switch, as well as the software-switch emulating the NoviFlow hardware, we use the "softrouter" driver.
+
+       <driver name="softrouter" extends="default"
+                manufacturer="Various" hwVersion="various" swVersion="0.0.0">
+
+
+  
 Note that when using software switches, ONOS needs to be told which driver to use. This is done via the "devices" configuration in the ~/Applications/config/network-cfg.json file in the Atrium-ONOS distribution VM
 
 ### Quick Start
 
 To quickly get started with software switches, follow the recipe below to launch ONOS
 
-    admin@atrium16A:~$ cell atrium_fabric_no_learn
-    admin@atrium16A:~$ cp Applications/config/network-cfg.json.fabric.nolearn.mn Applications/config/network-cfg.json
+    admin@atrium16A:~$ cell atrium_router
+    admin@atrium16A:~$ cp Applications/config/network-cfg.json.router.mn Applications/config/network-cfg.json
     admin@atrium16A:~$ ok clean
 
-From a different shell, start the script to launch Mininet with the software-switches and end-hosts.
+From a different shell, start the script to launch Mininet with the software-switch, quagga-instance and end-hosts.
