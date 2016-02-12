@@ -42,7 +42,7 @@ This will bring up the setup shown below
 ![](https://github.com/onfsdn/atrium-docs/blob/master/16A/ONOS/pics/topoR.png)
 
 There are a few things to note here:
-* While the picture shows the expected way to deploy the Atrium router with the router-deploy.py script, the script we just launched (router_test.py) creates everything you see in the picture within the Atrium  Distribution VM.
+* The picture shows the expected way to deploy the Atrium router with the router-deploy.py script. But the script we just launched (router_test.py) creates everything you see in the picture within the Atrium  Distribution VM.
 * The router-test.py script launches the "Dataplane Switch" using the CPqD software switch. Use the "driver" configuration in network-cfg.json to set "softrouter" for NoviFlow emulation, or "ofdpa-cpqd-vlan" for Accton emulation.
 * The router-test.py creates 3 physical (dataplane) interfaces on the CPqD switch
     * port 1 is configured 192.168.10.101 and connected to an external router "peer 1" on vlan 100.
