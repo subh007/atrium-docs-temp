@@ -39,4 +39,4 @@ From a different shell, start the script to launch Mininet with the software-swi
 
 This will bring up the setup shown below
 
-!()[https://github.com/onfsdn/atrium-docs/blob/master/16A/ONOS/pics/topoR.png] 
+![](https://github.com/onfsdn/atrium-docs/blob/master/16A/ONOS/pics/topoR.png)
