@@ -32,4 +32,4 @@ To quickly get started with software switches, follow the recipe below to launch
     admin@atrium16A:~$ cp Applications/config/network-cfg.json.router.mn Applications/config/network-cfg.json
     admin@atrium16A:~$ ok clean
 
-From a different shell, start the script to launch Mininet with the software-switch, quagga-instance and end-hosts.
+From a different shell, start the script to launch Mininet with the software-switch, quagga-instances and end-hosts.
