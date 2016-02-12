@@ -57,5 +57,5 @@ To work with a hardware switch (either Accton or NoviFlow in this release), you 
 
     admin@atrium16A:~$ sudo ./router-deploy.py
 
-You will now need to connect your hardware switch to the controller and Quagga. There are some special requirements for doing so that are described in the [Hardware Switches](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Router-16A) installation guide.
+You will now need to connect your hardware switch to the controller and Quagga. There are some special requirements for doing that, described in the [Hardware Switches](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Router-16A) installation guide.
 
