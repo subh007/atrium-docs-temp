@@ -44,4 +44,4 @@ Use the following command to convert the vmdk file to qcow2. You can then use yo
 
 ### Fabric Installation 
 
-Check out the rest of the installation guide for [configuring and running ONOS](https://github.com/onfsdn/atrium-docs/wiki/Configuring-ONOS-Fabric-16A) and then either using a [hardware fabric](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Fabric-16A) or using [software switches to emulate hardware](https://github.com/onfsdn/atrium-docs/wiki/Software-Install-ONOS-Fabric-16A). 
+Check out the rest of the installation guide for [configuring and running ONOS for the fabric](https://github.com/onfsdn/atrium-docs/wiki/Configuring-ONOS-Fabric-16A) and then either using a [hardware fabric](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Fabric-16A) or using [software switches to emulate hardware](https://github.com/onfsdn/atrium-docs/wiki/Software-Install-ONOS-Fabric-16A). 
