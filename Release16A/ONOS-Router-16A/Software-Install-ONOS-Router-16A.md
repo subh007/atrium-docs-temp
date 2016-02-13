@@ -135,3 +135,6 @@ Use the ONOS CLI to see information about devices and hosts that the controller 
     id=00:00:00:00:20:01/-1, mac=00:00:00:00:20:01, location=of:0000000000000001/2, vlan=-1, ip(s)=[192.168.20.1]
     onos> 
 
+Notice that ONOS sees the peers 10.1 and 20.1 at the expected ports 1 and 2 on switch of:1 with VLANs 100 and -1 (untagged) respectively. It also sees it's own interface addresses 10.101 and 20.101 on port 3, which is connected to the Quagga host, because these addresses are actually configured on the Quagga host interface (the script router-test does that for you). 
+
+You can also use the "flows" and "groups" commands on the ONOS CLI to see the flows/groups programmed in the dataplane switch. Of course the output of these commands depends on which "driver" was used in ONOS.
