@@ -51,3 +51,14 @@ If you connect dataplane ports to one of those with a blue label on the front pa
 For the Atrium router on ONOS, we have certified Accton switch models# 5710, 5712 and 6712. The installation (which is the same for router or fabric) is described [here](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Fabric-16A).
 
 ### Special Requirements for Hardware Switches
+
+[[https://github.com/onfsdn/atrium-docs/blob/master/16A/ONOS/pics/cpcp.png]]
+
+In the previous Atrium release (2015/A) the BGP traffic between the dataplane switch (from/to peers) and Quagga in the control plane, was encapsulated within OpenFlow and sent to the controller, and it was ONOS's responsibility to decapsulate and shovel it over to the Quagga host. This led to an interdependence between BGP and OF, which at high flow counts potentially led to stability issues.
+
+In this release of the Atrium Router, we have separated the OpenFlow communications from all control-protocol communications (BGP, OSPF etc) by the arrangement shown in the picture above. OpenFlow communication still happens over the switch's management port, which is either directly connected to the eth0 interface of the Atrium Distribution VM, or carried over a management network (as OpenFlow runs over TCP).
+
+For all other communication (such as BGP), a dataplane port is dedicated for connecting directly to Quagga. This port is called the "ControlPlaneConnectPoint" port in the configuration. ONOS will take care of programming rules that identify  all protocol communication coming in from all other ports of the dataplane switch, and then redirecting them out of this special port. The same is true for the reverse direction. Thus all protocol communication is directly handled in the dataplane ASIC, and never reaches the switch-CPU. The requirement of course is that this special (reserved) port needs to be:
+* either physically connected to the eth1 interface of the Atrium Distribution VM
+* or tunneled over to the eth1 interface of the VM over a management network. Please note that such a tunnel needs to be an L2 tunnel, which means that entire Ethernet frames emitted by this port needs to be delivered intact and unchanged to the eth1 interface of the VM, and vice-versa (ie. MAC addresses should not change, ARP traffic should not be intercepted and handled by anyone else, etc.).
+
