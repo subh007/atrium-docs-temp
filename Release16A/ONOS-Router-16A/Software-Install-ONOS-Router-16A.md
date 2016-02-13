@@ -48,7 +48,7 @@ There are a few things to note here:
     * port 1 is configured 192.168.10.101 and connected to an external router "peer 1" on vlan 100.
     * port 2 is configured 192.168.20.101 and connected to another external router "peer 2" on an untagged interface.
     * **port 3 is a dataplane interface that is used for a different purpose** -- connecting to the Quagga host that "speaks" the control protocols BGP, OSPF etc. See [here](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Router-16A#special-requirements-for-hardware-switches) for details.
-    * the switch also a management interface over which it connects to ONOS using OpenFlow 1.3
+    * the switch also has a management interface over which it connects to ONOS using OpenFlow 1.3
 
 It is possible to see all the instantiations as follows
 
@@ -65,7 +65,7 @@ It is possible to see all the instantiations as follows
 
 Here "router" is the CPqD switch instantiating the dataplane-switch part of the Atrium router. "qh" is the Quagga Linux host that instantiates the routing-protocols for the Atrium router. The hosts and peers are as shown in the diagram.
 
-Use the mininet utility to enter "qh", telnet into Quagga BGP and check the peer's the Atrium router sees.
+Use the mininet utility to enter "qh", telnet into Quagga BGP and check the BGP peers the Atrium router sees.
 
     admin@atrium16A:~$ ./mininet/util/m qh
     
