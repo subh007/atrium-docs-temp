@@ -5,3 +5,4 @@ This is the second release of the ONOS-based Atrium Router. The [previous releas
 [[https://github.com/onfsdn/atrium-docs/blob/master/16A/ONOS/pics/router.png]]
 
 There are two major changes:
+1. In the previous release, BGP traffic from peers (dotted line above) reached Quagga in the control plane in an indirect way. BGP was encapsulated within OpenFlow and sent to the controller, and it was ONOS's responsibility (via the encap/decap app) to shovel it over to the Quagga host via a control-plane OVS. This happened in the reverse direction as well. This led to an interdependence between BGP and OF, which at high flow counts potentially led to stability issues. In this release, the BGP traffic is **redirected in the data-plane** to a port reserved for communication with Quagga directly. By separating the OF and BGP channels, we improve the stability of the router and simplify the architecture.
