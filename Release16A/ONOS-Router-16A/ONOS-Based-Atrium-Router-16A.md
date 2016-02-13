@@ -13,6 +13,12 @@ In addition to the two major changes, the ability to support both vlan-tagged an
 
 ### Getting Started
 
+Follow the [Installation Guide](https://github.com/onfsdn/atrium-docs/wiki/Installation-Guide-ONOS-Based-Router-16A) to configure and launch ONOS from the [Atrium_ONOS_2016_A.ova](https://github.com/onfsdn/atrium-docs/wiki) distribution VM.
+
+For the dataplane switch, you can use [hardware switches from either NoviFlow or Accton](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Router-16A).
+
+If you don't have a hardware-switch, you could get started with a software switch that emulates the hardware-switch pipeline (ie. the Noviflow or OF-DPA pipeline). Follow the guide to [get started with software-switches](https://github.com/onfsdn/atrium-docs/wiki/Software-Install-ONOS-Router-16A).
+
 ### Contributors
 * Jonathan Hart (ON.Lab)
 * Saurav Das (ONF)
