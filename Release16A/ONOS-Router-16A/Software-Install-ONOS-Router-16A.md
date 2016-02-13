@@ -50,3 +50,63 @@ There are a few things to note here:
     * **port 3 is a dataplane interface that is used for a different purpose** -- connecting to the Quagga host that "speaks" the control protocols BGP, OSPF etc. See [here](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Router-16A#special-requirements-for-hardware-switches) for details.
     * the switch also a management interface over which it connects to ONOS using OpenFlow 1.3
 
+It is possible to see all the instantiations as follows
+
+    admin@atrium16A:~$ ps aux | grep mininet
+    root     32305  0.0  0.0  21164  2156 pts/2    Ss+  19:26   0:00 bash --norc -is mininet:c0
+    root     32311  0.0  0.0  21164  2152 pts/4    Ss+  19:26   0:00 bash --norc -is mininet:host1
+    root     32316  0.0  0.0  21164  2156 pts/5    Ss+  19:26   0:00 bash --norc -is mininet:host2
+    root     32320  0.0  0.0  21164  2152 pts/6    Ss+  19:26   0:00 bash --norc -is mininet:peer1
+    root     32322  0.0  0.0  21164  2152 pts/7    Ss+  19:26   0:00 bash --norc -is mininet:peer2
+    root     32324  0.0  0.0  21164  2152 pts/8    Ss+  19:26   0:00 bash --norc -is mininet:qh
+    root     32328  0.0  0.0  21164  2152 pts/9    Ss+  19:26   0:00 bash --norc -is mininet:root1
+    root     32330  0.0  0.0  21168  2176 pts/10   Ss+  19:26   0:00 bash --norc -is mininet:router
+    admin    32750  0.0  0.0  11736   936 pts/11   S+   19:27   0:00 grep --color=auto mininet
+
+Here "router" is the CPqD switch instantiating the dataplane-switch part of the Atrium router. "qh" is the Quagga Linux host that instantiates the routing-protocols for the Atrium router. The hosts and peers are as shown in the diagram.
+
+Use the mininet utility to enter "qh", telnet into Quagga BGP and check the peer's the Atrium router sees.
+
+    admin@atrium16A:~$ ./mininet/util/m qh
+    
+    root@atrium16A:~# telnet localhost 2605
+    Trying 127.0.0.1...
+    Connected to localhost.
+    Escape character is '^]'.
+    
+    Hello, this is Quagga (version 0.99.24.1).
+    Copyright 1996-2005 Kunihiro Ishiguro, et al.
+
+    User Access Verification
+    Password: sdnip 
+
+    qh> en
+    qh# 
+    qh# sh ip bgp summary 
+    BGP router identifier 1.1.1.11, local AS number 65000
+    RIB entries 3, using 336 bytes of memory
+    Peers 2, using 9136 bytes of memory
+
+    Neighbor        V         AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+    192.168.10.1    4 65001      23      24        0    0    0 00:00:58        1
+    192.168.20.1    4 65002      22      25        0    0    0 00:00:58        1
+
+    Total number of neighbors 2
+
+The display above shows that the Atrium router peers with the external routers (AS 65001 and 65002) and has learnt 1  route from each. 
+
+Use the mininet utility again to enter one of the hosts, and ping the other host to verify dataplane connectivity.
+
+    admin@atrium16A:~$ ./mininet/util/m host1
+
+    root@atrium16A:~# ping 2.0.0.1
+    PING 2.0.0.1 (2.0.0.1) 56(84) bytes of data.
+    64 bytes from 2.0.0.1: icmp_req=1 ttl=62 time=0.397 ms
+    64 bytes from 2.0.0.1: icmp_req=2 ttl=62 time=0.341 ms
+    64 bytes from 2.0.0.1: icmp_req=3 ttl=62 time=0.380 ms
+    ^C
+    --- 2.0.0.1 ping statistics ---
+    3 packets transmitted, 3 received, 0% packet loss, time 2000ms
+    rtt min/avg/max/mdev = 0.341/0.372/0.397/0.032 ms
+    root@atrium16A:~# 
+
