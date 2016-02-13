@@ -110,3 +110,28 @@ Use the mininet utility again to enter one of the hosts, and ping the other host
     rtt min/avg/max/mdev = 0.341/0.372/0.397/0.032 ms
     root@atrium16A:~# 
 
+Use the ONOS CLI to see information about devices and hosts that the controller sees
+
+    onos> devices
+    id=of:0000000000000001, available=true, role=MASTER, type=SWITCH, mfr=Stanford University, Ericsson Research and CPqD Research, hw=OpenFlow 1.3 Reference Userspace Switch, sw=May 21 2015 08:32:26, serial=1, managementAddress=127.0.0.1, protocol=OF_13, driver=softrouter, name=of:0000000000000001, channelId=127.0.0.1:49221
+    onos> 
+    onos> ports
+    id=of:0000000000000001, available=true, role=MASTER, type=SWITCH, mfr=Stanford University, Ericsson Research and CPqD Research, hw=OpenFlow 1.3 Reference Userspace Switch, sw=May 21 2015 08:32:26, serial=1, managementAddress=127.0.0.1, protocol=OF_13, driver=softrouter, name=of:0000000000000001, channelId=127.0.0.1:49221
+      port=local, state=enabled, type=copper, speed=10 , portName=tap:, portMac=00:00:00:00:00:01
+      port=1, state=enabled, type=copper, speed=10485 , portName=router-eth1, portMac=1a:77:16:35:d5:f7
+      port=2, state=enabled, type=copper, speed=10485 , portName=router-eth2, portMac=0a:65:6c:1a:a3:ce
+      port=3, state=enabled, type=copper, speed=10485 , portName=router-eth3, portMac=7a:49:a2:35:d8:1f
+    onos> 
+    onos> portstats
+    deviceId=of:0000000000000001
+       port=1, pktRx=1849, pktTx=3691, bytesRx=147964, bytesTx=297090, pktRxDrp=0, pktTxDrp=0, Dur=2869
+       port=2, pktRx=1874, pktTx=3732, bytesRx=142123, bytesTx=292503, pktRxDrp=0, pktTxDrp=0, Dur=2869
+       port=3, pktRx=3729, pktTx=5545, bytesRx=290245, bytesTx=437699, pktRxDrp=0, pktTxDrp=0, Dur=2869
+    onos> 
+    onos> hosts
+    id=00:00:00:00:00:01/100, mac=00:00:00:00:00:01, location=of:0000000000000001/3, vlan=100, ip(s)=[192.168.10.101]
+    id=00:00:00:00:00:02/-1, mac=00:00:00:00:00:02, location=of:0000000000000001/3, vlan=-1, ip(s)=[192.168.20.101]
+    id=00:00:00:00:10:01/100, mac=00:00:00:00:10:01, location=of:0000000000000001/1, vlan=100, ip(s)=[192.168.10.1]
+    id=00:00:00:00:20:01/-1, mac=00:00:00:00:20:01, location=of:0000000000000001/2, vlan=-1, ip(s)=[192.168.20.1]
+    onos> 
+
