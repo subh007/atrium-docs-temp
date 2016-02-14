@@ -60,3 +60,83 @@ In this release of the Atrium Router, we have separated the OpenFlow communicati
 For all other communication (such as BGP), a dataplane port is dedicated for connecting directly to Quagga. This port is called the "ControlPlaneConnectPoint" port in the configuration. ONOS will take care of programming rules that identify  all protocol communication coming in from all other ports of the dataplane switch, and then redirecting them out of this special port. The same is true for the reverse direction. Thus all protocol communication is directly handled in the dataplane ASIC, and never reaches the switch-CPU. The requirement of course is that this special (reserved) port needs to be:
 * either physically connected to the eth1 interface of the Atrium Distribution VM
 * or tunneled over to the eth1 interface of the VM over a management network. Please note that such a tunnel needs to be an L2 tunnel, which means that entire Ethernet frames emitted by this port needs to be delivered intact and unchanged to the eth1 interface of the VM, and vice-versa (ie. MAC addresses should not change, ARP traffic should not be intercepted and handled by anyone else, etc.).
+
+The script `router-deploy.py` creates an L2 bridge (blue circle in pic) to connect the Quagga host to the Atrium Distribution VM's `eth1` interface. Thus, before launching this script, ensure that you have created a second interface for the VM and it is named exactly `eth1`. This interface does not need an IP address.
+
+    admin@atrium16A:~$ ifconfig
+    eth0      Link encap:Ethernet  HWaddr 3e:33:fa:04:c6:72  
+          inet addr:10.128.100.11  Bcast:10.128.255.255  Mask:255.255.0.0
+          inet6 addr: fe80::3c33:faff:fe04:c672/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:9261 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2461 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1313780 (1.3 MB)  TX bytes:653092 (653.0 KB)
+
+    eth1      Link encap:Ethernet  HWaddr 4a:fb:65:88:67:99  
+          inet6 addr: fe80::48fb:65ff:fe88:6799/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:622 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:729 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:49641 (49.6 KB)  TX bytes:53443 (53.4 KB)
+
+    lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:254 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:254 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:20230 (20.2 KB)  TX bytes:20230 (20.2 KB)
+
+After launching the script, if you enter the `net` command on the mininet cli, it should look like this:
+
+    mininet> net
+    qh qh-eth0:root1-eth0 qh-eth1:s1-eth1
+    root1 root1-eth0:qh-eth0
+    s1 lo:  s1-eth1:qh-eth1 eth1: 
+    c0
+
+The display above shows that there is a switch (L2 bridge) called `s1` with 3 interfaces - one loopback `lo`, one called `s1-eth1` which is connected to the quagga host interface `qh-eth1`, and a third interface called `eth1`. This last interface is the `eth1` interface of the VM.  
+
+If you check "inside" the quagga-host namespace, you will find that the `router-deploy.py` script has created the Atrium router interfaces
+
+    admin@atrium16A:~$ ./mininet/util/m qh
+
+    root@atrium16A:~# ifconfig
+    lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:273 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:273 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:20851 (20.8 KB)  TX bytes:20851 (20.8 KB)
+
+    qh-eth0   Link encap:Ethernet  HWaddr 5e:f8:cf:e6:5a:11  
+          inet addr:1.1.1.11  Bcast:0.0.0.0  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:16 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:14 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1024 (1.0 KB)  TX bytes:1320 (1.3 KB)
+
+    qh-eth1   Link encap:Ethernet  HWaddr 00:00:00:00:00:02  
+          inet addr:192.168.20.101  Bcast:0.0.0.0  Mask:255.255.255.0
+          inet6 addr: fe80::200:ff:fe00:2/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:3651 errors:0 dropped:1492 overruns:0 frame:0
+          TX packets:2956 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:296509 (296.5 KB)  TX bytes:225959 (225.9 KB)
+
+    qh-eth1.100 Link encap:Ethernet  HWaddr 00:00:00:00:00:01  
+          inet addr:192.168.10.101  Bcast:0.0.0.0  Mask:255.255.255.0
+          inet6 addr: fe80::200:ff:fe00:1/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:789 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1667 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:55817 (55.8 KB)  TX bytes:122097 (122.0 KB)
+
