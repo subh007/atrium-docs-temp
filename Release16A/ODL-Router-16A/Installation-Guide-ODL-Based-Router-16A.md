@@ -138,6 +138,11 @@ OFPST_FLOW reply (OF1.3) (xid=0x2):
  cookie=0x0, duration=1972.617s, table=1, n_packets=0, n_bytes=0, priority=180,ip,nw_dst=1.0.0.0/16 actions=write_actions(group:1)
  cookie=0x0, duration=1971.616s, table=1, n_packets=0, n_bytes=0, priority=180,ip,nw_dst=2.0.0.0/16 actions=write_actions(group:2)
 
+ $ sudo ovs-ofctl dump-groups router -O OpenFlow13
+ OFPST_GROUP_DESC reply (OF1.3) (xid=0x2):
+  group_id=1,type=indirect,bucket=weight:0,actions=set_field:00:00:00:00:20:01->eth_dst,set_field:00:00:00:00:00:02->eth_src,push_vlan:0x8100,set_field:4296->vlan_vid,output:2
+  group_id=2,type=indirect,bucket=weight:0,actions=set_field:00:00:00:00:10:01->eth_dst,set_field:00:00:00:00:00:01->eth_src,push_vlan:0x8100,set_field:4196->vlan_vid,output:1
+
  In Opendaylight console we can see the learnt routes:
 
  opendaylight-user@root>atrium:fib
