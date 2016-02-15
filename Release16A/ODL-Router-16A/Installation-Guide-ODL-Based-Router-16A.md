@@ -1,7 +1,7 @@
 ### Distribution VM
 This virtual machine for the distribution has an implementation for a BGP peering router bundled with OpenDaylight (based off Lithium). This distribution also has the code for flow objectives driver for the OVS 2-Table reference pipleine and the NoviFlow Open Flow switch. To start using the Open Daylight Distribution of Atrium Release 2015/A, download the distribution VM (```Atrium_ODL_2016_A.ova```) from here: size ~ 3GB
 
-[link for google drive](link for google drive)
+[link for downloading VM](https://drive.google.com/folderview?id=0B90ChmrE2pw1WkpXN0kxSTVucE0&usp=sharing)
 
 login: admin
 
