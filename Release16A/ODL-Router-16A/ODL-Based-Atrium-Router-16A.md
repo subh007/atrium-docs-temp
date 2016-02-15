@@ -12,7 +12,7 @@ The release brings in the framework for vendors looking to develop Open Daylight
 
 Follow the [Installation Guide](https://github.com/onfsdn/atrium-docs/wiki/Installation-Guide-ODL-Based-Router-16A) to configure and launch ODL from the [Atrium_ODL_2016_A.ova](https://github.com/onfsdn/atrium-docs/wiki) distribution VM.
 
-For the data plane, you can either use the hardware switches from NoviFlow (more hardware drivers will be added soon) or if you do not have a hardware-switch, you could get started with a software switch that emulates the hardware-switch pipeline (OVS 2-Table pipeline). Follow the guide to [Guide to developing flow objective drivers for hardware switches](https://github.com/onfsdn/atrium-docs/wiki/Driver-Development-ODL-Based-Router-16A).
+For the data plane, you can either use the hardware switches from NoviFlow (more hardware drivers will be added soon) or if you do not have a hardware-switch, you could get started with a software switch that emulates the hardware-switch pipeline (OVS 2-Table pipeline). Follow the [Guide to developing flow objective drivers for hardware switches](https://github.com/onfsdn/atrium-docs/wiki/Driver-Development-ODL-Based-Router-16A).
 
 ### Contributors
 * Subhash Kumar Singh, Jayaprakash Kumar, Syed Zubair Ahmed, Priyanka K (Criterion Networks)
