@@ -1,5 +1,5 @@
 ### Distribution VM
-To get started with Atrium Release 2015/A, download the distribution VM (Atrium_ODL_2016_A.ova) from here: size ~ 3GB
+This virtual machine for the distribution has an implementation for a BGP peering router bundled with OpenDaylight (based of Lithium). This distribution also has implementation of flow objectives driver for the OVS 2-Table reference pipleine and the Novi Flow Open Flow switch. To start using the Open Daylight Distribution of Atrium Release 2015/A, download the distribution VM (Atrium_ODL_2016_A.ova) from here: size ~ 3GB
 
 [link for google drive](link for google drive)
 
@@ -7,14 +7,12 @@ login: admin
 
 password: bgprouter
 
+NOTE: This distribution VM is NOT meant for development. Its sole purpose is to have a working system up and running to use as a starting point for test/deployment as painlessly as possible. 
 
-NOTE: This distribution VM is NOT meant for development. Its sole purpose is to have a working system up and running for test/deployment as painlessly as possible. A developer guide using mechanisms other than this VM will be available shortly after the release.
+ 
 
 ## Installation Steps
 Once you have the VM up and running, the following steps will help you to bring up the system.
-
-admin@atrium:~/atrium-odl$ ./distribution-karaf/target/assembly/bin/karaf
-opendaylight-user@root>feature:install odl-atrium-all
 
 You have two choices:
 
@@ -23,14 +21,14 @@ A) You can bring up the Atrium Router completely in software
 B) Or you could bring up the Atrium Router in hardware
 
 ### Bring up the Atrium Router completely in software
- You can bring up the Atrium Router completely in software, completely self-contained in this VM. In addition, you will get a complete test infrastructure (other routers to peer with, hosts to ping from, etc.) that you can play with (via the router-test.py script). Note that when using this setup, we emulate  hardware-pipelines using software switches.
+ You can bring up the Atrium Router completely in software, completely self-contained in this VM. In addition, you will get a complete test infrastructure (other routers to peer with, hosts to ping from, etc.) that you can play with (via the router-test.py script). Note that when using this setup, we emulate hardware-pipelines using software switches (a 2 Table Pipleline emulated in OVS).
 
 Following are the steps required to bring up the test topology:
 
 <topology image url>
 
 1) Start the ODL controller from the using the distribution VM. ODL based Atrium
-codebase can be found in path "/home/admin/atrium-odl". Launch the controller
+codebase can be found in path "/home/admin/atrium-odl". Launch the controller.
 
 cd atrium-odl/
 admin@atrium:~/atrium-odl$ ./distribution-karaf/target/assembly/bin/karaf
@@ -45,7 +43,9 @@ To ensure the correct feature installation one can check for similar logs:
 
 2016-02-14 01:30:28,022 | INFO  | config-pusher    | Bgprouter                        | 296 - org.opendaylight.atrium.bgprouter-impl - 1.0.0.SNAPSHOT | BGP Router started
 
-Following is the details of installed features:
+<Elaborate the above>
+
+Check if all the key components required for operation are working fine.
 
 opendaylight-user@root>feature:list | grep atrium
 atrium-thirdparty                          | 1.0-SNAPSHOT     | x         | odl-atrium-1.0-SNAPSHOT             | OpenDaylight :Atrium : thirdparty
@@ -79,7 +79,7 @@ odl-openflowplugin-app-config-pusher       | 0.2.0-SNAPSHOT   | x         | open
 odl-openflowplugin-app-lldp-speaker        | 0.2.0-SNAPSHOT   | x         | openflowplugin-0.2.0-SNAPSHOT       | OpenDaylight :: Openflow Plugin :: app lldp-speake
 odl-openflowplugin-app-bulk-o-matic        | 0.2.0-SNAPSHOT   |           | openflowplugin-0.2.0-SNAPSHOT       | OpenDaylight :: Openflow Plugin :: app bulk flow o
 
-3) Now, start the miniet topology using the "router-test.py" script. It will create topology
+3) Now, start the mininet topology using the "router-test.py" script. It will create topology
 as described in the above topology diagram.
 
 admin@atrium:~$ sudo ./router-test.py &
@@ -96,11 +96,11 @@ root      3924  0.0  0.0  21144  2144 pts/10   Ss+  01:35   0:00 bash --norc -is
 root      3927  0.0  0.0  21144  2140 pts/11   Ss+  01:35   0:00 bash --norc -is mininet:s1
 admin     4198  0.0  0.0  11708   668 pts/1    S+   01:36   0:00 grep --color=auto mininet
 
-4) Application uses two configuration file (addresses.json and sdnip.json) to install the correct
+4) The BGP peering application uses two configuration files (addresses.json and sdnip.json) to install the correct
 flow rule for any topology. "addresses.json" holds the port level details for the OF switch and
 "sdnip.json" holds the information required for the router peering.
 
-Configuration can be modified at runtime using the "restconf".
+The configuration files can be modified at runtime using the "restconf".
 
 Configuration file can be found at following path:
 "/home/admin/atrium-odl/distribution-karaf/target/assembly/configuration/initial"
