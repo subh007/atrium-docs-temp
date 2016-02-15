@@ -2,11 +2,13 @@
 
 This is the first release of the Open Daylight based Atrium distribution. The Atrium 2016/A distribution implements an open source router that speaks BGP to other routers, and forwards packets received on one port/vlan to another, based on the next-hop learnt via BGP peering. A BGP peering application for the Open Daylight Controller and a new model for flow objective drivers for switches integrated with the Open Daylight Atrium distribution was developed for this project. The implementation has the same level of feature partity that was introduced by the Atrium 2015/A distribution on the ONOS controller.
 
-An overview of the architecture is available at <>. 
+An overview of the architecture is available at https://github.com/onfsdn/atrium-docs/wiki/ODL-Based-Atrium-Router-16A-Architecture. 
 
 The stack includes a ODL controller with a BGP peering application integrated with an instance of Quagga BGP. As with the previous release, BGP traffic from peers is handed by Quagga. BGP is encapsulated within OpenFlow and sent to the controller, and ODL does the encap/decap to send it to Quagga host via a control-plane OVS. The BGP application internally peers with Quagga using I-BGP, to retrieve the routes Quagga learns via E-BGP communications with peers. It then used the router app to program the dataplane FIB table by using the appropriate switch-driver (implemented as flow objectives) that understands the internal pipeline of the dataplane switch. The flow objectives driver which provides data plane abstraction has implementation for an OVS 2-Table Pipeline reference driver and hardware driver support for [NoviFlow](http://noviflow.com/products/noviswitch/) switches.
 
 The release brings in the framework for vendors looking to develop Open Daylight applications that are interoperable across different open flow switch products. All the code in this Atrium distribution will be integrated into upstream projects like DIDM in the Open Daylight Controller post the Beryllium release that will allow the ODL community developers to develop more applications that leverage the interoperability elements provided by flow objectives.
+
+A demonstration of the ODL Atrium distribution was done recently at OpenTechIndia, to show the BGP peering between Atrium ONOS based stack and the Atrium ODL based stack. More details on the same can be found at https://github.com/onfsdn/atrium-docs/wiki/OpenTechIndia-Demo.
 
 ### Getting Started
 
