@@ -21,7 +21,6 @@ If you do not have a hardware-switch, you could get started with a software swit
 
 ### Contributors
 * Subhash Kumar Singh, Jayaprakash Kumar, Syed Zubair Ahmed, Priyanka K (Criterion Networks)
-* Manoj Nair, Subhash Mondal (Wipro Technologies)
+* Manoj Nair, Subhash Mondal, Harsh (Wipro Technologies)
 * Davide T (Noviflow)
 * Saurav Das (ONF)
-
