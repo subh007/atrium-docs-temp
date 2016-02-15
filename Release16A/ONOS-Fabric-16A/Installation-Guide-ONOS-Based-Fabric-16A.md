@@ -1,5 +1,5 @@
 ### Distribution VM
-To get started with Atrium Release 2016/A for the **fabric**, download the distribution VM (**Atrium_ONOS_2016_A.ova**) from here: size ~ 2GB
+To get started with Atrium Release 2016/A for the **ONOS based fabric or router**, download the distribution VM (**Atrium_ONOS_2016_A.ova**) from here: size ~ 2GB
 
 [[https://github.com/onfsdn/atrium-docs/wiki]]
 
@@ -42,3 +42,6 @@ Use the following command to convert the vmdk file to qcow2. You can then use yo
     $ qemu-img convert -f vmdk Atrium_ONOS_2016_A-disk1.vmdk -O qcow2 Atrium_ONOS_2016_A-disk1.qcow2
 
 
+### Fabric Installation 
+
+Check out the rest of the installation guide for [configuring and running ONOS for the fabric](https://github.com/onfsdn/atrium-docs/wiki/Configuring-ONOS-Fabric-16A) and then either using a [hardware fabric](https://github.com/onfsdn/atrium-docs/wiki/Hardware-Install-ONOS-Fabric-16A) or using [software switches to emulate hardware](https://github.com/onfsdn/atrium-docs/wiki/Software-Install-ONOS-Fabric-16A). 

@@ -9,7 +9,7 @@ For hardware switches based on OF-DPA, we use the regular "ofdpa" driver
      <driver name="ofdpa" extends="default"
                 manufacturer="Broadcom Corp." hwVersion="OF-DPA.*" swVersion="OF-DPA.*">
 
-For software switches emulating OF-DPA, we use the "ofdpa-cpqd" driver
+For software switches emulating OF-DPA for the **fabric**, we use the "ofdpa-cpqd" driver
 
      <driver name="ofdpa-cpqd" extends="default"
                 manufacturer="ONF"
@@ -31,7 +31,7 @@ From a different shell, start the script to launch Mininet with the software-swi
 
 This is bring up a simple fabric with 2 leaves and 2 spines. Two hosts are connected to each leaf.
 
-<pic>
+[[https://github.com/onfsdn/atrium-docs/blob/master/16A/ONOS/pics/fab.png]]
 
 Try to ping from each host to every other host using the mininet "pingall" command
 
