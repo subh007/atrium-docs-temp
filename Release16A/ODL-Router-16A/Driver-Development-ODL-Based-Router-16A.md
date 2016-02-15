@@ -1,4 +1,4 @@
-Developing new flow objective drivers for new hardware platforms
+##Developing new flow objective drivers for new hardware platforms
 
 The tutorial below summarizes the steps to implement flow objective interfaces in new device drivers for OpenDaylight (ODL) controller. It is necessary to develop a new driver for each unique openflow pipeline to allow ODL applications to interoperate across multiple switch platforms. The BGP peering application is currently the only ODL application for which the drivers are being tested.
 
@@ -7,33 +7,33 @@ All flow objectives are implemented in the ODL DIDM project (Device Independent 
 In this document the Mininet driver implementation is explained as a reference implementation. The OVS-2TP pipeline is currently implemented as part of the mininet driver.
 
 Following are the important steps for writing any device driver:
-Setting up the project structure
-Driver Registration
-Device Identification
-Device Driver Interface Implementation (Flow Objectives)
-Device Driver Feature installation
+  * Setting up the project structure
+  * Driver Registration
+  * Device Identification
+  * Device Driver Interface Implementation (Flow Objectives)
+  * Device Driver Feature installation
 
-Setting up project structure:
+###Setting up project structure:
 
 Copy the folder structure from the vendor folder https://github.com/openflowsdn/atrium/tree/master/didm/vendor. It includes two subfolder ( feature and impl). We require to modify bundle coordinate for these two subfolder to reflect the vendor implementation.
 
 E.g. (https://github.com/openflowsdn/atrium/blob/master/didm/vendor/mininet/impl/pom.xml )
-
+```
 <modelVersion>4.0.0</modelVersion>
 <groupId>org.opendaylight.didm.mininet</groupId>   // (group ID)
 <artifactId>mininet-impl</artifactId>                              // (artificat ID)
 <version>0.2.0-SNAPSHOT</version>                           //  (version)
 <packaging>bundle</packaging>
-
+```
 (Similarly for https://github.com/openflowsdn/atrium/blob/master/didm/vendor/mininet/features/pom.xml)
-
+```
 <groupId>org.opendaylight.didm.mininet</groupId>
 <artifactId>mininet-features</artifactId>
 <version>0.2.0-SNAPSHOT</version>
 <name>${project.artifactId}</name>
 <modelVersion>4.0.0</modelVersion>
-
-Driver Registration:
+```
+###Driver Registration:
 
 For registering the driver, the DIDM writes the device info to the configurational data store. The device info constitutes of (Manufacturer name and Hardware name).
 
@@ -42,6 +42,7 @@ E.g. (https://github.com/openflowsdn/atrium/blob/master/didm/vendor/mininet/impl
 
 Make the appropriate changes for your driver.
 
+```
 // Device Info for the OVS
 private static final Class<? extends DeviceTypeBase> DEVICE_TYPE = MininetDeviceType.class;
     private static final List<String> MANUFACTURERS = ImmutableList.of("Nicira, Inc.");
@@ -58,15 +59,16 @@ private static InstanceIdentifier<DeviceTypeInfo> registerDeviceTypeInfo(DataBro
         writeTx.merge(LogicalDatastoreType.CONFIGURATION, path, DEVICE_TYPE_INFO, true);
 
         CheckedFuture<Void, TransactionCommitFailedException> future = writeTx.submit();
+```
 
-
-Device Identification:
+### Device Identification:
 
 Device and Driver mapping is done at runtime on the basis of manufacturer ID and Hw type reported from openflowplugin. (No code modification is required for new driver development and this section is added for the sake of completeness and better understanding)
 
 e.g.
 (https://github.com/openflowsdn/atrium/blob/master/didm/identification/impl/src/main/java/org/opendaylight/didm/identification/impl/DeviceIdentificationManager.java )
 
+```
 private void checkOFMatch(final InstanceIdentifier<Node> path, Node node, FlowCapableNode flowCapableNode, List<DeviceTypeInfo> dtiInfoList ){
     	 if (flowCapableNode != null) {
              String hardware = flowCapableNode.getHardware();
@@ -89,11 +91,11 @@ private void checkOFMatch(final InstanceIdentifier<Node> path, Node node, FlowCa
                              return;
                      }
 
+```
 
 
 
-
-Device Driver Interface Implementation:
+###Device Driver Interface Implementation:
 
 The driver implements the driver interface named “openflow-feature” (https://github.com/openflowsdn/atrium/blob/master/didm/drivers/api/src/main/yang/openflow-feature.yang ).
 
@@ -101,24 +103,26 @@ openflow-feature.yang defines the interface and expose the FlowObjective APIs. T
 
 e.g.
 (https://github.com/openflowsdn/atrium/blob/master/didm/vendor/mininet/impl/src/main/java/org/opendaylight/didm/vendor/mininet/OpenFlowDeviceDriver.java )
-
+```
 public class OpenFlowDeviceDriver implements OpenflowFeatureService, DataChangeListener, AutoCloseable {
 …
 }
+```
 
 Implement the interface according to your device pipeline.
 
-Device Driver Feature installation:
+###Device Driver Feature installation:
 
 Feature for the vendor driver is defined by the copied bundle “features”. The feature file defines the required bundle, config file and feature to enable the driver.
 
 e.g. (https://github.com/openflowsdn/atrium/blob/master/didm/vendor/mininet/features/src/main/features/features.xml )
-
+```
 <feature name='odl-didm-mininet' version='${project.version}' description='OpenDaylight :: DIDM Mininet reference driver'>
     <feature version='${didm.version}'>odl-didm-identification</feature>
     <feature version='${didm.version}'>odl-didm-drivers-api</feature>
     <bundle>mvn:org.opendaylight.didm.mininet/mininet-impl/${project.version}</bundle>
     <configfile finalname="${config.configfile.directory}/didm-mininet.xml">mvn:org.opendaylight.didm.mininet/mininet-impl/${project.version}/xml/config</configfile>
   </feature>
+```
 
 The ODL application (BGP peering app) creates one more feature “odl-didm-all” using feature “odl-didm-mininet” to make it available at runtime. For new drivers, vendors need to add their driver feature to the feature file ( https://github.com/openflowsdn/atrium/blob/master/features/src/main/features/features.xml ) to make it available to install at runtime.
