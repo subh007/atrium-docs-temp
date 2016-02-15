@@ -38,11 +38,11 @@ Control Plane router deployment script :
 
 Configuration File :
 
-          sdnip.json        : https://www.dropbox.com/s/ksea6gk6s42birc/sdnip.json?dl=1
+* sdnip.json        : https://www.dropbox.com/s/ksea6gk6s42birc/sdnip.json?dl=1
 
-          addresses.json    : https://www.dropbox.com/s/c4rua23oy5vfhp8/addresses.json?dl=1
+* addresses.json    : https://www.dropbox.com/s/c4rua23oy5vfhp8/addresses.json?dl=1
 
-          routerconfig.json : https://www.dropbox.com/s/1wz2rbaz8ikrcb7/mnrouterconfig.json?dl=1
+* routerconfig.json : https://www.dropbox.com/s/1wz2rbaz8ikrcb7/mnrouterconfig.json?dl=1
 
 Data plane switch (configuration) : https://www.dropbox.com/s/i9x522ud40dn8y0/single-sw.py?dl=1
 
