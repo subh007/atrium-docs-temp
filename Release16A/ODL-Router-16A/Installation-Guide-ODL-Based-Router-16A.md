@@ -25,7 +25,7 @@ B) Or you could bring up the Atrium Router in hardware
 
 Following are the steps required to bring up the test topology:
 
-<topology image url>
+<TBD: Topology image url>
 
 1) Start the ODL controller from the using the distribution VM. ODL based Atrium
 codebase can be found in path "/home/admin/atrium-odl". Launch the controller.
@@ -39,13 +39,12 @@ DIDM (Device Identification and Device Management).
 
 opendaylight-user@root>feature:install odl-atrium-all
 
-To ensure the correct feature installation one can check for similar logs:
+Check if all the key components required for operation are working fine:
+
+<TBD>
 
 2016-02-14 01:30:28,022 | INFO  | config-pusher    | Bgprouter                        | 296 - org.opendaylight.atrium.bgprouter-impl - 1.0.0.SNAPSHOT | BGP Router started
 
-<Elaborate the above>
-
-Check if all the key components required for operation are working fine.
 
 opendaylight-user@root>feature:list | grep atrium
 atrium-thirdparty                          | 1.0-SNAPSHOT     | x         | odl-atrium-1.0-SNAPSHOT             | OpenDaylight :Atrium : thirdparty
@@ -100,16 +99,18 @@ admin     4198  0.0  0.0  11708   668 pts/1    S+   01:36   0:00 grep --color=au
 flow rule for any topology. "addresses.json" holds the port level details for the OF switch and
 "sdnip.json" holds the information required for the router peering.
 
-The configuration files can be modified at runtime using the "restconf".
-
 Configuration file can be found at following path:
 "/home/admin/atrium-odl/distribution-karaf/target/assembly/configuration/initial"
 
-5) Controller will install the flows to control plane and data plane ovs switch
-to enable the BGP peering. And finally the bgp peer will exchange the routes with
-each other. Controller collects the routes from the control plane Quagga using the
-i-bgp connection and push the flow to data plane switch for packet forwarding using
-the ovs 2 table pipeline driver.
+The configuration files can be modified at runtime using the "restconf".
+
+5) Controller will install the flows to control plane and data plane OVS switch
+to enable the BGP peering. Now the BGP peers will exchange the routes with
+each other. The BGP application on the controller learns the routes from the control plane Quagga using
+i-BGP connection and pushes the flows to data plane switch for packet forwarding using
+the OVS 2-Table pipeline driver.
+
+Verifying the flow installation: <bold TBD>
 
 Flows in control plane switch:
 $ sudo ovs-ofctl dump-flows s1 -O OpenFlow13
@@ -119,11 +120,8 @@ OFPST_FLOW reply (OF1.3) (xid=0x2):
  cookie=0x0, duration=1901.408s, table=0, n_packets=2, n_bytes=88, arp actions=CONTROLLER:65535
  cookie=0x0, duration=1901.409s, table=0, n_packets=0, n_bytes=0, icmp actions=CONTROLLER:65535
 
- Flows in data plane switch:
- $ sudo ovs-ofctl dump-flows router -O OpenFlow13 table=1
-OFPST_FLOW reply (OF1.3) (xid=0x2):
- cookie=0x0, duration=1972.617s, table=1, n_packets=0, n_bytes=0, priority=180,ip,nw_dst=1.0.0.0/16 actions=write_actions(group:1)
- cookie=0x0, duration=1971.616s, table=1, n_packets=0, n_bytes=0, priority=180,ip,nw_dst=2.0.0.0/16 actions=write_actions(group:2)
+Flows in data plane switch: Table 0 
+ 
 admin@atrium:~$ sudo ovs-ofctl dump-flows router -O OpenFlow13 table=0
 OFPST_FLOW reply (OF1.3) (xid=0x2):
  cookie=0x0, duration=1983.152s, table=0, n_packets=0, n_bytes=0, ip,in_port=1,dl_vlan=100,dl_dst=00:00:00:00:00:01 actions=pop_vlan,goto_table:1
@@ -132,40 +130,47 @@ OFPST_FLOW reply (OF1.3) (xid=0x2):
  cookie=0x0, duration=1983.151s, table=0, n_packets=1236, n_bytes=96963, priority=65535,ip,in_port=2,dl_vlan=200,dl_dst=00:00:00:00:00:02,nw_dst=192.168.20.101 actions=CONTROLLER:65535
  cookie=0x0, duration=1983.151s, table=0, n_packets=2, n_bytes=92, arp actions=CONTROLLER:65535
 
+ Flows in data plane switch: Table 1
 
  $ sudo ovs-ofctl dump-flows router -O OpenFlow13 table=1
 OFPST_FLOW reply (OF1.3) (xid=0x2):
  cookie=0x0, duration=1972.617s, table=1, n_packets=0, n_bytes=0, priority=180,ip,nw_dst=1.0.0.0/16 actions=write_actions(group:1)
  cookie=0x0, duration=1971.616s, table=1, n_packets=0, n_bytes=0, priority=180,ip,nw_dst=2.0.0.0/16 actions=write_actions(group:2)
 
+ Flows in data plane switch: Group Table
+ 
  $ sudo ovs-ofctl dump-groups router -O OpenFlow13
  OFPST_GROUP_DESC reply (OF1.3) (xid=0x2):
   group_id=1,type=indirect,bucket=weight:0,actions=set_field:00:00:00:00:20:01->eth_dst,set_field:00:00:00:00:00:02->eth_src,push_vlan:0x8100,set_field:4296->vlan_vid,output:2
   group_id=2,type=indirect,bucket=weight:0,actions=set_field:00:00:00:00:10:01->eth_dst,set_field:00:00:00:00:00:01->eth_src,push_vlan:0x8100,set_field:4196->vlan_vid,output:1
 
- In Opendaylight console we can see the learnt routes:
+ In Opendaylight console you should see the learnt routes:
 
  opendaylight-user@root>atrium:fib
 Type : UPDATE	Next Hop Ip : 192.168.10.1	Prefix : 1.0.0.0/16	Next Hop Mac : MacAddress [_value=00:00:00:00:10:01]
 Type : UPDATE	Next Hop Ip : 192.168.20.1	Prefix : 2.0.0.0/16	Next Hop Mac : MacAddress [_value=00:00:00:00:20:01]
 
-6) Now we are ready to test ping from one host to another
+6) Now we are ready to test ping from one host to another.
 
 Using the mininet utilities login to host1(1.0.0.1) and ping to the host2(2.0.0.1).
 
+Ping should be successful !
 
+TBD
 
-### Bring up the Atrium Router completely in hardware (Noviflow)
+### Bring up the Atrium Router with hardware 
 
-To confiture the Atrium with the hardware openflow switch Required change in configuration
+NoviFlow is currently the only hardware Atrium driver that is supported. The Noviflow hardware platform uses the OVS-2TP (mininet) driver to install the learnt routes from control plane quagga.
+
+To configure the Atrium with the hardware openflow switch, make the required changes in configuration
 file (sdnip.json and addresses.json) according to topology.
 
-Currently Noviflow hardware platform uses the ovs-2TP (mininet) driver to install
-the learnt routes from control plane quagga.
+TBD (say how the driver selection is done)
 
 
 ### Known Issues:
-* Lack of performance testing and optimizations for performance
-* Functionality tests are incomplete both for hardware-switch based tests and emulated-hardware tests.
+
+* The distribution needs to be optimized to get better performance
 * Some time the controller goes into deadlock condition, in such cases we need to rebuild
 distribuition-karaf artifact (using mvn clean install -DskipTests=True)
+* Flows are not getting deleted in the OVS 2-TP driver (TBD - bugid)
