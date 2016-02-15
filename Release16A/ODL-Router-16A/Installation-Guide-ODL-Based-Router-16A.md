@@ -25,7 +25,7 @@ B) Or you could bring up the Atrium Router in hardware
 
 Following are the steps required to bring up the test topology:
 
-![alt text](https://www.dropbox.com/s/i5o445h2pke3b1e/test_topology.png?dl=0)
+![test_topology](https://www.dropbox.com/s/i5o445h2pke3b1e/test_topology.png?dl=1)
 
 1) Start the ODL controller from the using the distribution VM. ODL based Atrium
 codebase can be found in path "/home/admin/atrium-odl". Launch the controller.
