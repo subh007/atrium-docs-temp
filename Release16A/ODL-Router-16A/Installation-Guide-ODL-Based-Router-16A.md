@@ -1,5 +1,5 @@
 ### Distribution VM
-To get started with Atrium Release 2015/A, download the distribution VM (Atrium_ODL_2016_A.ova) from here: size ~ 3GB
+This virtual machine for the distribution has an implementation for a BGP peering router along with flow objectives abstraction module for an OVS 2-Table reference pipeline available with OpenDaylight (based of Lithium). This distribution also has implementation of flow objectives driver for the Novi Flow Open Flow switch. To start using the Open Daylight Distribution of Atrium Release 2015/A, download the distribution VM (Atrium_ODL_2016_A.ova) from here: size ~ 3GB
 
 [link for google drive](link for google drive)
 
@@ -7,8 +7,9 @@ login: admin
 
 password: bgprouter
 
+NOTE: This distribution VM is NOT meant for development. Its sole purpose is to have a working system up and running to use as a starting point for test/deployment as painlessly as possible. 
 
-NOTE: This distribution VM is NOT meant for development. Its sole purpose is to have a working system up and running for test/deployment as painlessly as possible. A developer guide using mechanisms other than this VM will be available shortly after the release.
+ 
 
 ## Installation Steps
 Once you have the VM up and running, the following steps will help you to bring up the system.
