@@ -1,3 +1,5 @@
+Developing new flow objective drivers for new hardware platforms
+
 The tutorial below summarizes the steps to implement flow objective interfaces in new device drivers for OpenDaylight (ODL) controller. It is necessary to develop a new driver for each unique openflow pipeline to allow ODL applications to interoperate across multiple switch platforms. The BGP peering application is currently the only ODL application for which the drivers are being tested.
 
 All flow objectives are implemented in the ODL DIDM project (Device Independent Driver Module) which is responsible for handling vendor specific device drivers in ODL.  Please refer to https://groups.opensourcesdn.org/wg/Atrium/document/45 to get a high level overview of flow objectives and https://wiki.opendaylight.org/view/DIDM:Main to understand the DIDM project. Also refer https://groups.opensourcesdn.org/wg/Atrium/document/23 that talks about developing a simple 2-table pipeline for the ONOS controller.
