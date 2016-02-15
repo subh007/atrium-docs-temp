@@ -13,7 +13,7 @@ There are only 3 (already implemented in ONOS) :
 
 ### FlowObjective Implementation in Opendaylight
 
-[ODL_Architecture](https://www.dropbox.com/s/eu4p4scxts941gy/ODL_Arch.png?dl=1)
+![ODL_Architecture](https://www.dropbox.com/s/eu4p4scxts941gy/ODL_Arch.png?dl=1)
 
 Key constructs:
 
