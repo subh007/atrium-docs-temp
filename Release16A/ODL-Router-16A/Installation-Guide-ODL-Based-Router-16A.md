@@ -1,5 +1,5 @@
 ### Distribution VM
-This virtual machine for the distribution has an implementation for a BGP peering router bundled with OpenDaylight (based of Lithium). This distribution also has implementation of flow objectives driver for the OVS 2-Table reference pipleine and the Novi Flow Open Flow switch. To start using the Open Daylight Distribution of Atrium Release 2015/A, download the distribution VM (Atrium_ODL_2016_A.ova) from here: size ~ 3GB
+This virtual machine for the distribution has an implementation for a BGP peering router bundled with OpenDaylight (based of Lithium). This distribution also has implementation of flow objectives driver for the OVS 2-Table reference pipleine and the Novi Flow Open Flow switch. To start using the Open Daylight Distribution of Atrium Release 2015/A, download the distribution VM (```Atrium_ODL_2016_A.ova```) from here: size ~ 3GB
 
 [link for google drive](link for google drive)
 
@@ -21,19 +21,19 @@ A) You can bring up the Atrium Router completely in software
 B) Or you could bring up the Atrium Router in hardware
 
 ### Bring up the Atrium Router completely in software
- You can bring up the Atrium Router completely in software, completely self-contained in this VM. In addition, you will get a complete test infrastructure (other routers to peer with, hosts to ping from, etc.) that you can play with (via the router-test.py script). Note that when using this setup, we emulate hardware-pipelines using software switches (a 2 Table Pipleline emulated in OVS).
+ You can bring up the Atrium Router completely in software, completely self-contained in this VM. In addition, you will get a complete test infrastructure (other routers to peer with, hosts to ping from, etc.) that you can play with (via the ```router-test.py``` script). Note that when using this setup, we emulate hardware-pipelines using software switches (a 2 Table Pipleline emulated in OVS).
 
 Following are the steps required to bring up the test topology:
 
 ![test_topology](https://www.dropbox.com/s/i5o445h2pke3b1e/test_topology.png?dl=1)
 
 1) Start the ODL controller from the using the distribution VM. ODL based Atrium
-codebase can be found in path "/home/admin/atrium-odl". Launch the controller.
+codebase can be found in path ```/home/admin/atrium-odl```. Launch the controller.
 ```
 cd atrium-odl/
 admin@atrium:~/atrium-odl$ ./distribution-karaf/target/assembly/bin/karaf
 ```
-2) Install the feature "odl-atrium-all". This feature will install the required
+2) Install the feature ```odl-atrium-all```. This feature will install the required
 components to make stack working. This feature will install BGP Application and
 DIDM (Device Identification and Device Management).
 ```
@@ -41,7 +41,8 @@ opendaylight-user@root>feature:install odl-atrium-all
 ```
 Check if all the key components required for operation are working fine:
 
-<TBD>
+Check the logs using command ```log:tail``` from OpenDayLight console
+
 ```
 2016-02-14 01:30:28,022 | INFO  | config-pusher    | Bgprouter                        | 296 - org.opendaylight.atrium.bgprouter-impl - 1.0.0.SNAPSHOT | BGP Router started
 ```
@@ -114,7 +115,7 @@ each other. The BGP application on the controller learns the routes from the con
 i-BGP connection and pushes the flows to data plane switch for packet forwarding using
 the OVS 2-Table pipeline driver.
 
-Verifying the flow installation: <bold TBD>
+6) *Verifying the flow installation:*
 
 Flows in control plane switch:
 ```
@@ -161,7 +162,10 @@ Using the mininet utilities login to host1(1.0.0.1) and ping to the host2(2.0.0.
 
 Ping should be successful !
 
-TBD
+```
+$ ./mininet/util/m host1
+```
+to enter host1 to ping 2.0.0.1 (host2)
 
 ### Bring up the Atrium Router with hardware
 
@@ -170,8 +174,10 @@ NoviFlow is currently the only hardware Atrium driver that is supported. The Nov
 To configure the Atrium with the hardware openflow switch, make the required changes in configuration
 file (sdnip.json and addresses.json) according to topology.
 
-TBD (say how the driver selection is done)
-
+Driver for the hardware platform is getting selected based on the the manufacturer name
+and switch model identifier reported by the ```OpenFlowPlugin``` module. So after registering
+the open flow switch to the driver all the requests from application is routed to the
+driver using the ```routed-rpc``` mechanism.
 
 ### Known Issues:
 
