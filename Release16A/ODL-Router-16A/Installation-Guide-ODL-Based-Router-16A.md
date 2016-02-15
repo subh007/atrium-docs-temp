@@ -46,7 +46,7 @@ Check the logs using command ```log:tail``` from OpenDayLight console
 ```
 2016-02-14 01:30:28,022 | INFO  | config-pusher    | Bgprouter                        | 296 - org.opendaylight.atrium.bgprouter-impl - 1.0.0.SNAPSHOT | BGP Router started
 ```
-Check if all the key components required for operation are working fine.
+Check if all the key features required are running properly
 
 ```
 opendaylight-user@root>feature:list | grep atrium
@@ -152,7 +152,7 @@ OFPST_FLOW reply (OF1.3) (xid=0x2):
   group_id=1,type=indirect,bucket=weight:0,actions=set_field:00:00:00:00:20:01->eth_dst,set_field:00:00:00:00:00:02->eth_src,push_vlan:0x8100,set_field:4296->vlan_vid,output:2
   group_id=2,type=indirect,bucket=weight:0,actions=set_field:00:00:00:00:10:01->eth_dst,set_field:00:00:00:00:00:01->eth_src,push_vlan:0x8100,set_field:4196->vlan_vid,output:1
 ```
- In Opendaylight console you should see the learnt routes:
+ In Opendaylight console you should see the learnt routes.
 ```
  opendaylight-user@root>atrium:fib
 Type : UPDATE	Next Hop Ip : 192.168.10.1	Prefix : 1.0.0.0/16	Next Hop Mac : MacAddress [_value=00:00:00:00:10:01]
@@ -162,12 +162,12 @@ Type : UPDATE	Next Hop Ip : 192.168.20.1	Prefix : 2.0.0.0/16	Next Hop Mac : MacA
 
 Using the mininet utilities login to host1(1.0.0.1) and ping to the host2(2.0.0.1).
 
-Ping should be successful !
-
 ```
 $ ./mininet/util/m host1
 ```
 to enter host1 to ping 2.0.0.1 (host2)
+
+Veriy that ping is successful !
 
 ### Bring up the Atrium Router with hardware
 
@@ -178,7 +178,7 @@ file (sdnip.json and addresses.json) according to topology.
 
 Driver for the hardware platform is getting selected based on the the manufacturer name
 and switch model identifier reported by the ```OpenFlowPlugin``` module. So after registering
-the open flow switch to the driver all the requests from application is routed to the
+the open flow switch to the driver all the requests from application is routed to the appropriate
 driver using the ```routed-rpc``` mechanism.
 
 ### Known Issues:
