@@ -11,11 +11,10 @@ There are only 3 (already implemented in ONOS) :
 * Forwarding Objective
 
 
-### FlowObjective Implementation in Opendaylight
+#### FlowObjective Implementation in Opendaylight
 
 ![ODL_Architecture](https://www.dropbox.com/s/lukk1ez7ia0lu1u/ODL_Arch_FO.png?dl=1)
 
-Key constructs:
 
 * Application communicates the flow installation requirement using flow Objectives.
 
