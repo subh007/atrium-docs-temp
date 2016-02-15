@@ -39,13 +39,15 @@ DIDM (Device Identification and Device Management).
 ```
 opendaylight-user@root>feature:install odl-atrium-all
 ```
-Check if all the key components required for operation are working fine:
+
 
 Check the logs using command ```log:tail``` from OpenDayLight console
 
 ```
 2016-02-14 01:30:28,022 | INFO  | config-pusher    | Bgprouter                        | 296 - org.opendaylight.atrium.bgprouter-impl - 1.0.0.SNAPSHOT | BGP Router started
 ```
+Check if all the key components required for operation are working fine.
+
 ```
 opendaylight-user@root>feature:list | grep atrium
 atrium-thirdparty                          | 1.0-SNAPSHOT     | x         | odl-atrium-1.0-SNAPSHOT             | OpenDaylight :Atrium : thirdparty
