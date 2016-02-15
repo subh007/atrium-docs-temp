@@ -7,9 +7,9 @@ login: admin
 
 password: bgprouter
 
-NOTE: This distribution VM is NOT meant for development. Its sole purpose is to have a working system up and running to use as a starting point for test/deployment as painlessly as possible. 
+NOTE: This distribution VM is NOT meant for development. Its sole purpose is to have a working system up and running to use as a starting point for test/deployment as painlessly as possible.
 
- 
+
 
 ## Installation Steps
 Once you have the VM up and running, the following steps will help you to bring up the system.
@@ -25,7 +25,7 @@ B) Or you could bring up the Atrium Router in hardware
 
 Following are the steps required to bring up the test topology:
 
-<TBD: Topology image url>
+![alt text](https://www.dropbox.com/s/i5o445h2pke3b1e/test_topology.png?dl=0)
 
 1) Start the ODL controller from the using the distribution VM. ODL based Atrium
 codebase can be found in path "/home/admin/atrium-odl". Launch the controller.
@@ -120,8 +120,8 @@ OFPST_FLOW reply (OF1.3) (xid=0x2):
  cookie=0x0, duration=1901.408s, table=0, n_packets=2, n_bytes=88, arp actions=CONTROLLER:65535
  cookie=0x0, duration=1901.409s, table=0, n_packets=0, n_bytes=0, icmp actions=CONTROLLER:65535
 
-Flows in data plane switch: Table 0 
- 
+Flows in data plane switch: Table 0
+
 admin@atrium:~$ sudo ovs-ofctl dump-flows router -O OpenFlow13 table=0
 OFPST_FLOW reply (OF1.3) (xid=0x2):
  cookie=0x0, duration=1983.152s, table=0, n_packets=0, n_bytes=0, ip,in_port=1,dl_vlan=100,dl_dst=00:00:00:00:00:01 actions=pop_vlan,goto_table:1
@@ -138,7 +138,7 @@ OFPST_FLOW reply (OF1.3) (xid=0x2):
  cookie=0x0, duration=1971.616s, table=1, n_packets=0, n_bytes=0, priority=180,ip,nw_dst=2.0.0.0/16 actions=write_actions(group:2)
 
  Flows in data plane switch: Group Table
- 
+
  $ sudo ovs-ofctl dump-groups router -O OpenFlow13
  OFPST_GROUP_DESC reply (OF1.3) (xid=0x2):
   group_id=1,type=indirect,bucket=weight:0,actions=set_field:00:00:00:00:20:01->eth_dst,set_field:00:00:00:00:00:02->eth_src,push_vlan:0x8100,set_field:4296->vlan_vid,output:2
@@ -158,7 +158,7 @@ Ping should be successful !
 
 TBD
 
-### Bring up the Atrium Router with hardware 
+### Bring up the Atrium Router with hardware
 
 NoviFlow is currently the only hardware Atrium driver that is supported. The Noviflow hardware platform uses the OVS-2TP (mininet) driver to install the learnt routes from control plane quagga.
 
