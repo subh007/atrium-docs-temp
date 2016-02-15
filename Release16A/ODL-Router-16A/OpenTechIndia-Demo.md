@@ -6,14 +6,22 @@
 
 #### Details for AS 100
 
-Controller    : OpenDayLight
+Controller    : OpenDaylight
+
 DP OF Switch  : OpenVswtich
+
 Driver        : ovs-2TP
+
 Peer AS       : 300, 500
+
 Control Plane router deployment script : https://www.dropbox.com/s/rxzry9qokwit3gx/router-deploy.py?dl=1
+
 Configuration File :
+
           sdnip.json     : https://www.dropbox.com/s/xtczoibnvilih6u/sdnip.json?dl=1
+
           addresses.json : https://www.dropbox.com/s/cm8rr30237eg0c8/address.json?dl=1
+
 Data plane switch (configuration) :
 
 
