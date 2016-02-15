@@ -177,5 +177,5 @@ TBD (say how the driver selection is done)
 
 * The distribution needs to be optimized to get better performance
 * Some time the controller goes into deadlock condition, in such cases we need to rebuild
-distribuition-karaf artifact (using mvn clean install -DskipTests=True)
+distribuition-karaf artifact (using ```mvn clean install -DskipTests=True```)
 * Flows are not getting deleted in the OVS 2-TP driver (TBD - bugid)
