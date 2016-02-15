@@ -12,13 +12,13 @@ Driver        : ovs-2TP
 
 Peer AS       : 300, 500
 
-Control Plane router deployment script : https://www.dropbox.com/s/rxzry9qokwit3gx/router-deploy.py?dl=1
-
 Configuration File :
 
-sdnip.json     :   https://www.dropbox.com/s/xtczoibnvilih6u/sdnip.json?dl=1
+* sdnip.json     :   https://www.dropbox.com/s/xtczoibnvilih6u/sdnip.json?dl=1
 
-addresses.json :   https://www.dropbox.com/s/cm8rr30237eg0c8/address.json?dl=1
+* addresses.json :   https://www.dropbox.com/s/cm8rr30237eg0c8/address.json?dl=1
+
+Control Plane router deployment script : https://www.dropbox.com/s/rxzry9qokwit3gx/router-deploy.py?dl=1
 
 Data plane switch (configuration) : https://www.dropbox.com/s/wyiu2slkvbjs81q/single-sw.py?dl=1
 
@@ -34,7 +34,6 @@ Driver     : SoftRouter
 
 Peer AS    : 200, 500
 
-Control Plane router deployment script :
 
 Configuration File :
 
@@ -43,6 +42,8 @@ Configuration File :
 * addresses.json    : https://www.dropbox.com/s/c4rua23oy5vfhp8/addresses.json?dl=1
 
 * routerconfig.json : https://www.dropbox.com/s/1wz2rbaz8ikrcb7/mnrouterconfig.json?dl=1
+
+Control Plane router deployment script :
 
 Data plane switch (configuration) : https://www.dropbox.com/s/i9x522ud40dn8y0/single-sw.py?dl=1
 
@@ -56,15 +57,15 @@ Driver        : OFDPA
 
 Peer AS       : 100, 200
 
-Control Plane router deployment script :
-
 Configuration File :
 
-          sdnip.json        : https://www.dropbox.com/s/3ulp0em8nyjo3mb/sdnip.json?dl=1
+* sdnip.json        : https://www.dropbox.com/s/3ulp0em8nyjo3mb/sdnip.json?dl=1
 
-          addresses.json    : https://www.dropbox.com/s/32nk7qj5r8k966w/addresses.json?dl=1
+* addresses.json    : https://www.dropbox.com/s/32nk7qj5r8k966w/addresses.json?dl=1
 
-          routerconfig.json : https://www.dropbox.com/s/dw8n5syzujzgwpg/acctonconfig.json?dl=1
+* routerconfig.json : https://www.dropbox.com/s/dw8n5syzujzgwpg/acctonconfig.json?dl=1
+
+Control Plane router deployment script :
 
 Data plane switch (configuration) :
 
