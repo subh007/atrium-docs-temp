@@ -1,4 +1,4 @@
-In [OpenTechIndia](http://opentechindia.org/), demonstration is done to show the
+At [OpenTechIndia 2016](http://opentechindia.org/), a demonstration was done to show the
 BGP peering between Atrium ONOS based stack with Atrium ODL based stack. Following
 are the details for the topology and configuration files.
 
