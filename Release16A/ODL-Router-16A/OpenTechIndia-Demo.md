@@ -1,6 +1,6 @@
 In [OpenTechIndia](http://opentechindia.org/), demonstration is done to show the
 BGP peering between Atrium ONOS based stack with Atrium ODL based stack. Following
-are the details for the topology and configuration files. 
+are the details for the topology and configuration files.
 
 #### Topology
 
@@ -16,7 +16,7 @@ Driver        : ovs-2TP
 
 Peer AS       : 300, 500
 
-Configuration File :
+Configuration Files :
 
 * sdnip.json     :   https://www.dropbox.com/s/xtczoibnvilih6u/sdnip.json?dl=1
 
@@ -39,7 +39,7 @@ Driver     : SoftRouter
 Peer AS    : 200, 500
 
 
-Configuration File :
+Configuration Files :
 
 * sdnip.json        : https://www.dropbox.com/s/ksea6gk6s42birc/sdnip.json?dl=1
 
@@ -47,9 +47,9 @@ Configuration File :
 
 * routerconfig.json : https://www.dropbox.com/s/1wz2rbaz8ikrcb7/mnrouterconfig.json?dl=1
 
-Control Plane router deployment script :
+Control Plane router deployment script : https://www.dropbox.com/s/620dquud07vu2ja/router-deploy.py?dl=1
 
-Data plane switch (configuration) : https://www.dropbox.com/s/i9x522ud40dn8y0/single-sw.py?dl=1
+Data plane switch (configuration)      : https://www.dropbox.com/s/i9x522ud40dn8y0/single-sw.py?dl=1
 
 #### Details for AS 300
 
@@ -61,7 +61,7 @@ Driver        : OFDPA
 
 Peer AS       : 100, 200
 
-Configuration File :
+Configuration Files :
 
 * sdnip.json        : https://www.dropbox.com/s/3ulp0em8nyjo3mb/sdnip.json?dl=1
 
@@ -69,9 +69,7 @@ Configuration File :
 
 * routerconfig.json : https://www.dropbox.com/s/dw8n5syzujzgwpg/acctonconfig.json?dl=1
 
-Control Plane router deployment script :
-
-Data plane switch (configuration) :
+Control Plane router deployment script : https://www.dropbox.com/s/rrnobov2me9f4e4/router-deploy.py?dl=1
 
 
 #### Details for AS 400 and 500
