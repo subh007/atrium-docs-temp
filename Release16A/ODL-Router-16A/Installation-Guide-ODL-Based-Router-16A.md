@@ -18,7 +18,7 @@ You have two choices:
 
 A) You can bring up the Atrium Router completely in software
 
-B) Or you could bring up the Atrium Router in hardware
+B) Or you could bring up the Atrium Router using supported switch hardware
 
 ### Bring up the Atrium Router completely in software
  You can bring up the Atrium Router completely in software, completely self-contained in this VM. In addition, you will get a complete test infrastructure (other routers to peer with, hosts to ping from, etc.) that you can test with using the ```router-test.py``` script. Note that when using this setup, we emulate hardware-pipelines using an OVS software switch (2 Table Pipeline).
