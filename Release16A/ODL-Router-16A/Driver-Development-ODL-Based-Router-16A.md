@@ -1,4 +1,4 @@
-##Developing new flow objective drivers for new hardware platforms
+##Developing flow objective driver for a new hardware platform
 
 The tutorial below summarizes the steps to implement flow objective interfaces in new device drivers for OpenDaylight (ODL) controller. It is necessary to develop a new driver for each unique openflow pipeline to allow ODL applications to interoperate across multiple switch platforms. The BGP peering application is currently the only ODL application for which the drivers are being tested.
 

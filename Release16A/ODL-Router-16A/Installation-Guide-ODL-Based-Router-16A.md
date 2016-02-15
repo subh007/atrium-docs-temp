@@ -1,5 +1,5 @@
 ### Distribution VM
-This virtual machine for the distribution has an implementation for a BGP peering router bundled with OpenDaylight (based of Lithium). This distribution also has implementation of flow objectives driver for the OVS 2-Table reference pipleine and the Novi Flow Open Flow switch. To start using the Open Daylight Distribution of Atrium Release 2015/A, download the distribution VM (```Atrium_ODL_2016_A.ova```) from here: size ~ 3GB
+This virtual machine for the distribution has an implementation for a BGP peering router bundled with OpenDaylight (based off Lithium). This distribution also has the code for flow objectives driver for the OVS 2-Table reference pipleine and the NoviFlow Open Flow switch. To start using the Open Daylight Distribution of Atrium Release 2015/A, download the distribution VM (```Atrium_ODL_2016_A.ova```) from here: size ~ 3GB
 
 [link for google drive](link for google drive)
 
@@ -18,10 +18,10 @@ You have two choices:
 
 A) You can bring up the Atrium Router completely in software
 
-B) Or you could bring up the Atrium Router in hardware
+B) Or you could bring up the Atrium Router using supported switch hardware
 
 ### Bring up the Atrium Router completely in software
- You can bring up the Atrium Router completely in software, completely self-contained in this VM. In addition, you will get a complete test infrastructure (other routers to peer with, hosts to ping from, etc.) that you can play with (via the ```router-test.py``` script). Note that when using this setup, we emulate hardware-pipelines using software switches (a 2 Table Pipleline emulated in OVS).
+ You can bring up the Atrium Router completely in software, completely self-contained in this VM. In addition, you will get a complete test infrastructure (other routers to peer with, hosts to ping from, etc.) that you can test with using the ```router-test.py``` script. Note that when using this setup, we emulate hardware-pipelines using an OVS software switch (2 Table Pipeline).
 
 Following are the steps required to bring up the test topology:
 
@@ -33,19 +33,21 @@ codebase can be found in path ```/home/admin/atrium-odl```. Launch the controlle
 cd atrium-odl/
 admin@atrium:~/atrium-odl$ ./distribution-karaf/target/assembly/bin/karaf
 ```
-2) Install the feature ```odl-atrium-all```. This feature will install the required
-components to make stack working. This feature will install BGP Application and
+2) Install the feature ```odl-atrium-all```. This feature will bringup the required
+components to make stack working and install BGP Application and
 DIDM (Device Identification and Device Management).
 ```
 opendaylight-user@root>feature:install odl-atrium-all
 ```
-Check if all the key components required for operation are working fine:
+
 
 Check the logs using command ```log:tail``` from OpenDayLight console
 
 ```
 2016-02-14 01:30:28,022 | INFO  | config-pusher    | Bgprouter                        | 296 - org.opendaylight.atrium.bgprouter-impl - 1.0.0.SNAPSHOT | BGP Router started
 ```
+Check if all the key features required are running properly
+
 ```
 opendaylight-user@root>feature:list | grep atrium
 atrium-thirdparty                          | 1.0-SNAPSHOT     | x         | odl-atrium-1.0-SNAPSHOT             | OpenDaylight :Atrium : thirdparty
@@ -150,7 +152,7 @@ OFPST_FLOW reply (OF1.3) (xid=0x2):
   group_id=1,type=indirect,bucket=weight:0,actions=set_field:00:00:00:00:20:01->eth_dst,set_field:00:00:00:00:00:02->eth_src,push_vlan:0x8100,set_field:4296->vlan_vid,output:2
   group_id=2,type=indirect,bucket=weight:0,actions=set_field:00:00:00:00:10:01->eth_dst,set_field:00:00:00:00:00:01->eth_src,push_vlan:0x8100,set_field:4196->vlan_vid,output:1
 ```
- In Opendaylight console you should see the learnt routes:
+ In Opendaylight console you should see the learnt routes.
 ```
  opendaylight-user@root>atrium:fib
 Type : UPDATE	Next Hop Ip : 192.168.10.1	Prefix : 1.0.0.0/16	Next Hop Mac : MacAddress [_value=00:00:00:00:10:01]
@@ -160,12 +162,12 @@ Type : UPDATE	Next Hop Ip : 192.168.20.1	Prefix : 2.0.0.0/16	Next Hop Mac : MacA
 
 Using the mininet utilities login to host1(1.0.0.1) and ping to the host2(2.0.0.1).
 
-Ping should be successful !
-
 ```
 $ ./mininet/util/m host1
 ```
 to enter host1 to ping 2.0.0.1 (host2)
+
+Veriy that ping is successful !
 
 ### Bring up the Atrium Router with hardware
 
@@ -176,7 +178,7 @@ file (sdnip.json and addresses.json) according to topology.
 
 Driver for the hardware platform is getting selected based on the the manufacturer name
 and switch model identifier reported by the ```OpenFlowPlugin``` module. So after registering
-the open flow switch to the driver all the requests from application is routed to the
+the open flow switch to the driver all the requests from application is routed to the appropriate
 driver using the ```routed-rpc``` mechanism.
 
 ### Known Issues:

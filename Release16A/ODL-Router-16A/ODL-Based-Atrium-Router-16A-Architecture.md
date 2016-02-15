@@ -1,3 +1,9 @@
+
+
+## BGP Application Architecture
+
+![BGP_Application](https://www.dropbox.com/s/tgnyxfj2yp5h55k/bgp_app.png?dl=1)
+
 ## FlowObjective
 
 Flow Objectives describe an SDN application’s objective (or intention) behind a flow it is sending to a device.
@@ -21,8 +27,3 @@ There are only 3 (already implemented in ONOS) :
 * Driver translates Flow Objectives to device specific flows.
 
 * DIDM handles device driver registration and communication.
-
-
-## BGP Application Architecture
-
-![BGP_Application](https://www.dropbox.com/s/tgnyxfj2yp5h55k/bgp_app.png?dl=1)
