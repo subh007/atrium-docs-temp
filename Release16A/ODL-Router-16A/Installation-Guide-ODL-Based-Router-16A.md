@@ -1,5 +1,5 @@
 ### Distribution VM
-This virtual machine for the distribution has an implementation for a BGP peering router along with flow objectives abstraction module for an OVS 2-Table reference pipeline available with OpenDaylight (based of Lithium). This distribution also has implementation of flow objectives driver for the Novi Flow Open Flow switch. To start using the Open Daylight Distribution of Atrium Release 2015/A, download the distribution VM (Atrium_ODL_2016_A.ova) from here: size ~ 3GB
+This virtual machine for the distribution has an implementation for a BGP peering router bundled with OpenDaylight (based of Lithium). This distribution also has implementation of flow objectives driver for the OVS 2-Table reference pipleine and the Novi Flow Open Flow switch. To start using the Open Daylight Distribution of Atrium Release 2015/A, download the distribution VM (Atrium_ODL_2016_A.ova) from here: size ~ 3GB
 
 [link for google drive](link for google drive)
 
@@ -14,9 +14,6 @@ NOTE: This distribution VM is NOT meant for development. Its sole purpose is to 
 ## Installation Steps
 Once you have the VM up and running, the following steps will help you to bring up the system.
 
-admin@atrium:~/atrium-odl$ ./distribution-karaf/target/assembly/bin/karaf
-opendaylight-user@root>feature:install odl-atrium-all
-
 You have two choices:
 
 A) You can bring up the Atrium Router completely in software
@@ -24,14 +21,14 @@ A) You can bring up the Atrium Router completely in software
 B) Or you could bring up the Atrium Router in hardware
 
 ### Bring up the Atrium Router completely in software
- You can bring up the Atrium Router completely in software, completely self-contained in this VM. In addition, you will get a complete test infrastructure (other routers to peer with, hosts to ping from, etc.) that you can play with (via the router-test.py script). Note that when using this setup, we emulate  hardware-pipelines using software switches.
+ You can bring up the Atrium Router completely in software, completely self-contained in this VM. In addition, you will get a complete test infrastructure (other routers to peer with, hosts to ping from, etc.) that you can play with (via the router-test.py script). Note that when using this setup, we emulate hardware-pipelines using software switches (a 2 Table Pipleline that is emulated in OVS).
 
 Following are the steps required to bring up the test topology:
 
 <topology image url>
 
 1) Start the ODL controller from the using the distribution VM. ODL based Atrium
-codebase can be found in path "/home/admin/atrium-odl". Launch the controller
+codebase can be found in path "/home/admin/atrium-odl". Launch the controller.
 
 cd atrium-odl/
 admin@atrium:~/atrium-odl$ ./distribution-karaf/target/assembly/bin/karaf
