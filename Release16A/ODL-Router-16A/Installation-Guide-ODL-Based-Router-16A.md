@@ -186,4 +186,4 @@ driver using the ```routed-rpc``` mechanism.
 * The distribution needs to be optimized to get better performance
 * Some time the controller goes into deadlock condition, in such cases we need to rebuild
 distribuition-karaf artifact (using ```mvn clean install -DskipTests=True```)
-* Flows are not getting deleted in the OVS 2-TP driver ([bugid](https://github.com/onfsdn/atrium-odl/issues/11))
+* Flows are not getting deleted in the OVS 2-TP driver ([reported](https://github.com/onfsdn/atrium-odl/issues/11))
