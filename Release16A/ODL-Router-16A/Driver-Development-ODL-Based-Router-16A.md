@@ -42,7 +42,7 @@ E.g. (https://github.com/openflowsdn/atrium/blob/master/didm/vendor/mininet/impl
 
 Make the appropriate changes for your driver.
 
-```
+```java
 // Device Info for the OVS
 private static final Class<? extends DeviceTypeBase> DEVICE_TYPE = MininetDeviceType.class;
     private static final List<String> MANUFACTURERS = ImmutableList.of("Nicira, Inc.");
@@ -68,7 +68,7 @@ Device and Driver mapping is done at runtime on the basis of manufacturer ID and
 e.g.
 (https://github.com/openflowsdn/atrium/blob/master/didm/identification/impl/src/main/java/org/opendaylight/didm/identification/impl/DeviceIdentificationManager.java )
 
-```
+```java
 private void checkOFMatch(final InstanceIdentifier<Node> path, Node node, FlowCapableNode flowCapableNode, List<DeviceTypeInfo> dtiInfoList ){
     	 if (flowCapableNode != null) {
              String hardware = flowCapableNode.getHardware();
@@ -103,7 +103,7 @@ openflow-feature.yang defines the interface and expose the FlowObjective APIs. T
 
 e.g.
 (https://github.com/openflowsdn/atrium/blob/master/didm/vendor/mininet/impl/src/main/java/org/opendaylight/didm/vendor/mininet/OpenFlowDeviceDriver.java )
-```
+```java
 public class OpenFlowDeviceDriver implements OpenflowFeatureService, DataChangeListener, AutoCloseable {
 …
 }
