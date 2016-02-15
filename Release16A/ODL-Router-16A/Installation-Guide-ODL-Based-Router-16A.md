@@ -1,5 +1,5 @@
 ### Distribution VM
-This virtual machine for the distribution has an implementation for a BGP peering router bundled with OpenDaylight (based of Lithium). This distribution also has implementation of flow objectives driver for the OVS 2-Table reference pipleine and the Novi Flow Open Flow switch. To start using the Open Daylight Distribution of Atrium Release 2015/A, download the distribution VM (```Atrium_ODL_2016_A.ova```) from here: size ~ 3GB
+This virtual machine for the distribution has an implementation for a BGP peering router bundled with OpenDaylight (based of Lithium). This distribution also has the code for flow objectives driver for the OVS 2-Table reference pipleine and the Novi Flow Open Flow switch. To start using the Open Daylight Distribution of Atrium Release 2015/A, download the distribution VM (```Atrium_ODL_2016_A.ova```) from here: size ~ 3GB
 
 [link for google drive](link for google drive)
 
@@ -21,7 +21,7 @@ A) You can bring up the Atrium Router completely in software
 B) Or you could bring up the Atrium Router in hardware
 
 ### Bring up the Atrium Router completely in software
- You can bring up the Atrium Router completely in software, completely self-contained in this VM. In addition, you will get a complete test infrastructure (other routers to peer with, hosts to ping from, etc.) that you can play with (via the ```router-test.py``` script). Note that when using this setup, we emulate hardware-pipelines using software switches (a 2 Table Pipleline emulated in OVS).
+ You can bring up the Atrium Router completely in software, completely self-contained in this VM. In addition, you will get a complete test infrastructure (other routers to peer with, hosts to ping from, etc.) that you can test with using the ```router-test.py``` script. Note that when using this setup, we emulate hardware-pipelines using an OVS software switch (2 Table Pipeline).
 
 Following are the steps required to bring up the test topology:
 
@@ -33,8 +33,8 @@ codebase can be found in path ```/home/admin/atrium-odl```. Launch the controlle
 cd atrium-odl/
 admin@atrium:~/atrium-odl$ ./distribution-karaf/target/assembly/bin/karaf
 ```
-2) Install the feature ```odl-atrium-all```. This feature will install the required
-components to make stack working. This feature will install BGP Application and
+2) Install the feature ```odl-atrium-all```. This feature will bringup the required
+components to make stack working and install BGP Application and
 DIDM (Device Identification and Device Management).
 ```
 opendaylight-user@root>feature:install odl-atrium-all
