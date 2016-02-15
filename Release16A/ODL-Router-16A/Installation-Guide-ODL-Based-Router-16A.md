@@ -115,7 +115,7 @@ each other. The BGP application on the controller learns the routes from the con
 i-BGP connection and pushes the flows to data plane switch for packet forwarding using
 the OVS 2-Table pipeline driver.
 
-6) *Verifying the flow installation:*
+__Verifying the flow installation:__
 
 Flows in control plane switch:
 ```
