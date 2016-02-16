@@ -47,7 +47,7 @@ Configuration Files :
 
 * [routerconfig.json](https://github.com/onfsdn/atrium-docs/blob/master/16A/ODL/scripts/onos/mnrouterconfig.json)
 
-[Control Plane router deployment script](https://github.com/onfsdn/atrium-docs/blob/master/16A/ODL/scripts/onos/router-deploy.py
+[Control Plane router deployment script](https://github.com/onfsdn/atrium-docs/blob/master/16A/ODL/scripts/onos/router-deploy.py)
 
 [Data plane switch configuration](https://github.com/onfsdn/atrium-docs/blob/master/16A/ODL/scripts/onos/single-sw.py)
 
