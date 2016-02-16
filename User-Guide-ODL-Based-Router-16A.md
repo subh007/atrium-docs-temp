@@ -50,6 +50,7 @@ Set MAVEN_HOME environment variable . To setup the environment variable, first t
     Default locale: en_US, platform encoding: UTF-8
 
 To set the MAVEN_HOME type the following command (in single line)
+
     admin@atrium:~/controller/atrium-karaf-1.0-SNAPSHOT/bin$ export MAVEN_HOME=/home/admin/Applications/apache-maven-3.3.1
 
 If you are running this distribution VM behind a proxy (in your corporate network), please ensure that you add the proxy details in the maven settings file located at $MAVEN_HOME/conf/settings.xml. 
@@ -57,20 +58,25 @@ Without this step the karaf runtime fail to download required dependencies which
 
 Next to start Opendaylight after you have done the above steps 
 
-1. In the Release 2016/A distribution VM for Opendaylight go to the root folder for Opendaylight 
-2. Go to the bin directory 
-3. Issue command ./karaf clean . Following is what you will see 
+* In the Release 2016/A distribution VM for Opendaylight go to the root folder for Opendaylight 
+* Go to the bin directory 
+* Issue command ./karaf clean . Following is what you will see 
 
 ![Karaf](https://github.com/onfsdn/atrium-docs/blob/master/16A/ODL/pics/Karaf.jpg)
 
-4. What you get after running the above command is the Karaf CLI where features can be installed on demand. What we are interested in is a feature by name ‘odl-atrium-all’. Installation of this feature will bring up the Atrium BGP Router application component inside ODL and also few utility plugins (such as ARP Handler, Tunneling Connectivty Manager, DIDM/Flow Objectives Module etc) which we will explain in subsequent sections. To install all the required features related to Atrium type the command given below. 
+* What you get after running the above command is the Karaf CLI where features can be installed on demand. What we are interested in is a feature by name ‘odl-atrium-all’. Installation of this feature will bring up the Atrium BGP Router application component inside ODL and also few utility plugins (such as ARP Handler, Tunneling Connectivty Manager, DIDM/Flow Objectives Module etc) which we will explain in subsequent sections. To install all the required features related to Atrium type the command given below. 
 
-    opendaylight-user@root>feature:install odl-atrium-all
+     opendaylight-user@root>feature:install odl-atrium-all
+
 This will take few seconds. Please wait until the CLI prompt appears again. 
 
-5. Once the CLI prompt appears verify if BGP Router is started by checking the log. 
+* Once the CLI prompt appears verify if BGP Router is started by checking the log. 
+
      opendaylight-user@root>log:tail 
-6. Look for a log message as given below which indicates all required components  started gracefully
-    2016-02-16 20:48:40,158 | INFO  | config-pusher    | Bgprouter                        | 296 - org.opendaylight.atrium.bgprouter-impl - 1.0.0.SNAPSHOT | BGP Router started
+
+* Look for a log message as given below which indicates all required components  started gracefully
+
+    2016-02-16 20:48:40,158 | INFO  | config-pusher    | Bgprouter                        | 296 -      
+    org.opendaylight.atrium.bgprouter-impl - 1.0.0.SNAPSHOT | BGP Router started
 
 Note: While installing odl-atrium-all, Opendaylight may get into a deadlock mode and fail to start on rare occasions. This is due to an inconsistency in the Opendaylight implementation as described here. In case you encounter this issue then it is recommended to logout from Karaf and restart. Other alternate option is to install features one by one (odl-l2switch-packethandler, odl-didm-all, odl-atrium-all).
