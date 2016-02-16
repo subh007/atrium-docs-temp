@@ -2,7 +2,7 @@
 
 ## BGP Application Architecture
 
-![BGP_Application](https://www.dropbox.com/s/tgnyxfj2yp5h55k/bgp_app.png?dl=1)
+![BGP_Application](https://github.com/onfsdn/atrium-docs/blob/master/16A/ODL/pics/bgp_app.png)
 
 ## FlowObjective
 
@@ -19,7 +19,7 @@ There are only 3 (already implemented in ONOS) :
 
 #### FlowObjective Implementation in Opendaylight
 
-![ODL_Architecture](https://www.dropbox.com/s/lukk1ez7ia0lu1u/ODL_Arch_FO.png?dl=1)
+![ODL_Architecture](https://github.com/onfsdn/atrium-docs/blob/master/16A/ODL/pics/ODL_ARCH_FO.png)
 
 
 * Application communicates the flow installation requirement using flow Objectives.

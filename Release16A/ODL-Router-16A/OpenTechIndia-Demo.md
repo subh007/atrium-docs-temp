@@ -4,7 +4,7 @@ are the details for the topology and configuration files.
 
 #### Topology
 
-![Demo_1](https://www.dropbox.com/s/38j0i8e3zuojil6/OTI_Demo_1.png?dl=1)
+![Demo_1](https://github.com/onfsdn/atrium-docs/blob/master/16A/ODL/pics/OTI_Demo_1.png)
 
 #### Details for AS 100
 
@@ -18,13 +18,13 @@ Peer AS       : 300, 500
 
 Configuration Files :
 
-* [sdnip.json](https://www.dropbox.com/s/xtczoibnvilih6u/sdnip.json?dl=1)
+* [sdnip.json](https://github.com/onfsdn/atrium-docs/blob/master/16A/ODL/scripts/odl/sdnip.json)
 
-* [addresses.json](https://www.dropbox.com/s/cm8rr30237eg0c8/address.json?dl=1)
+* [addresses.json](https://github.com/onfsdn/atrium-docs/blob/master/16A/ODL/scripts/odl/address.json)
 
-[Control Plane router deployment script](https://www.dropbox.com/s/rxzry9qokwit3gx/router-deploy.py?dl=1)
+[Control Plane router deployment script](https://github.com/onfsdn/atrium-docs/blob/master/16A/ODL/scripts/odl/router-deploy.py)
 
-[Data plane switch configuration](https://www.dropbox.com/s/wyiu2slkvbjs81q/single-sw.py?dl=1)
+[Data plane switch configuration](https://github.com/onfsdn/atrium-docs/blob/master/16A/ODL/scripts/odl/single-sw.py)
 
 
 
