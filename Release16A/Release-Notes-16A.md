@@ -7,7 +7,7 @@
 * Tested to work with NoviFlow hardware switches
 * Configuration scripts for deploying and testing the Atrium router.
 
-**Atrium ONOS Based Router 2nd Release **
+**Atrium ONOS Based Router 2nd Release**
 * Continued support of BGP routing protocol
 * Experimental support for Quagga IGP stacks, due to Quagga FPM protocol implementation in ONOS
 * Improved stability at high-flow counts due to OF and BGP separation
