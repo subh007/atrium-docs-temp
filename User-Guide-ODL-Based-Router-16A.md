@@ -21,3 +21,14 @@ The Device Identification and Driver Management (DIDM) component is one of the a
 One more important component in BGP Peering Router implementation is control plane switch. This component is primarily used to connect the Opendaylight SDN controller with the Quagga Soft-Router and establish a path for forwarding EBGP packets to and from Quagga. The BGP Application in Opendaylight has a component by name TunnelingConnectivityManager which forwards the BGP packets between control plan and data plane switch.  There is an obvious question as to why there is no direct connection between the CP and DP switches and why controller is tunneling the BGP packets. While this is the expected behavior that is intended, but controller based tunneling is used to overcome limitations of some of the DP Switch implementation which are currently not able to forward BGP packets. 
 
 Having briefed on the internal components, next we will see how to setup the environment for Atrium BGP Peering Router. 
+
+#Environment Setup#
+
+Following diagram shows a reference environment to verify the Atrium BGP Peering Application. 
+![User Test Environment](https://github.com/onfsdn/atrium-docs/blob/master/16A/ODL/pics/UserTestEnvironment.jpg)
+
+The whole setup shown above, except for the Opendaylight controller, can be brought up using a script available in the VM image distributed along with the release.  There are two scripts which can be used router-test.py and router-deploy.py. These two scripts are available in the root directory of the distribution VM. These scripts uses mininet python libraries to setup the topology shown above including the specific addresses used here. 
+
+The green boxes shown above are Linux containers which the above script brings up with Quagga soft-router within it. The connectivity/Links between the network elements (Peers , OVS, SDN controller, Hosts etc) is established using the mininet python APIs.  The difference between these two scripts is that router-test.py brings up the whole topology including the peers (except SDN controller) , where as router-deploy.py brings up only the components specific to Atrium BGP Peering Router , i.e. CP Switch and Quagga BGP Soft-Router (without DP Switch and the Peering Routers).  Note that the second option is used to test a specific vendor hardware switch where in the DP switch will be connected externally to the box running ODL, CP Switch and Quagga. 
+
+Next we will see how to start each of these components and verify the functionality. 
