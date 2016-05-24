@@ -6,7 +6,7 @@ We currently do not have any support for questions on Quanta LY2 hardware. It ca
 Questions regarding the use of the hardware and the open-source switch software stack as part of Atrium can be directed to the atrium_eng@groups.opensourcesdn.org mailing list. Generic questions on ONL, ONIE and Indigo should be directed to their own mailing lists.
 
 Configuration
-The configuration steps to follow for the LY2 are exactly the same as those for the Accton 5710.
+The configuration steps to follow for the LY2 are exactly the same as those for the [Accton 5710](https://github.com/onfsdn/atrium-docs/wiki/Accton-Installation-15A).
 
 Launching OFDPA and Indigo
 The launch process is also identical to the Accton. 
