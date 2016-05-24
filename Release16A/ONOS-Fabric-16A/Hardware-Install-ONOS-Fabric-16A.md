@@ -49,7 +49,7 @@ Bring up the ma1 interface with `ifup ma1`
     # reboot  
 
 7) You should now be able to ssh into the switch.  
-Copy over the OFDPA + Indigo debian package which has been included in the ONOS based [Atrium Distribution VM](https://github.com/onfsdn/atrium-docs/wiki) to the switch.
+Copy over the OFDPA + Indigo debian package from [here](https://github.com/onfsdn/atrium-docs/tree/master/16A/ONOS/builds). The builds are also included in the ONOS based [Atrium Distribution VM](https://github.com/onfsdn/atrium-docs/wiki).
 
     admin@atrium16A:~$ scp ofdpa/ofdpa-i.12.1.1_12.1.1+accton1.7-1_amd64.deb root@<switch-management-ip-addr>:/mnt/flash2/
 
