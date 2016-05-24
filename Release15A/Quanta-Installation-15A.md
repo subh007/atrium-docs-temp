@@ -1,11 +1,11 @@
-Prerequisites
+## Prerequisites
 We are assuming that you have successfully configured and launched ONOS and Quagga. This section will help you install Atrium's open-source switch software stack - ONL/ONIE/OFDPA/Indigo - on the Quanta LY2 and connect it to the control plane stack that you have already installed.
 
 We currently do not have any support for questions on Quanta LY2 hardware. It can be purchased from: http://www.colfaxdirect.com/store/pc/viewPrd.asp?idproduct=2170&idcategory=0
 
 Questions regarding the use of the hardware and the open-source switch software stack as part of Atrium can be directed to the atrium_eng@groups.opensourcesdn.org mailing list. Generic questions on ONL, ONIE and Indigo should be directed to their own mailing lists.
 
-Configuration
+## Configuration
 The configuration steps to follow for the LY2 are exactly the same as those for the [Accton 5710](https://github.com/onfsdn/atrium-docs/wiki/Accton-Installation-15A).
 
 Launching OFDPA and Indigo
