@@ -21,12 +21,13 @@ We use the [Indigo OF Agent](http://www.projectfloodlight.org/indigo/) from Big 
 
 2) While you can login to the switch using the management-IP assigned to it by your DHCP server, you will lose this capability in a couple of steps. So it required as part of this installation to connect to the console port via a serial line (Baud-rate: 115200, dataBits:8, parity:none, stop-bits:1, flow-control:none).
 
-3) At the ONIE prompt, we need to get and install ONL. Depending on the switch model you are using we need to use different installers.  
-    For powerpc based 5710, use the link: [[http://opennetlinux.org/binaries/latest-powerpc.installer]]  
-    For x86 based 5712 and 6712, use the link: [[http://opennetlinux.org/binaries/latest-amd64.installer]]
+3) At the ONIE prompt, we need to get and install ONL. Depending on the switch model you are using we need to use different installers from here [[http://opennetlinux.org/binaries/2016.01.04.21.46.18cc76084b3104961117aa8434599c8c67a9a276]]
+ 
+    For powerpc based 5710, use onl-18cc760-powerpc-all.2016.01.04.21.45.installer
+    For x86 based 5712 and 6712, use the onl-18cc760-amd64-all.2016.01.04.21.36.installer
 
-    ONIE:/ # wget http://opennetlinux.org/binaries/latest-amd64.installer
-    ONIE:/ # sh latest-amd64.installer
+    ONIE:/ # wget <installer-url>
+    ONIE:/ # sh <installer-filename>
 
 4) The switch should automatically reboot into ONL. At this step you will find that the management IP from step 1 has been lost, which is why console access was required. Use the default _login:_**root** _password:_**onl** to get in.
 
