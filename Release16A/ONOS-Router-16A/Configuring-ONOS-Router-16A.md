@@ -1,8 +1,19 @@
-There are 3 steps in configuring and running ONOS from the distribution VM
+There are 4 steps in configuring and running ONOS from the distribution VM
 
+1. Pull the latest code
 1. Use the correct "cell"
 1. Create (or copy over) the config in the `~/Applications/config/network-cfg.json` file
 1. Use the correct launch script
+
+#### Pull the latest code
+
+Get the latest bug fixes for the release branch of ONOS. In the distribution VM, move to the onos directory, pull the latest code in the branch, and recompile.
+
+    admin@atrium16A:~$ cd onos
+    admin@atrium16A:~/onos$ git pull
+    admin@atrium16A:~/onos$ mci
+
+'mci' is an alias for "mvn clean install"
 
 #### Using the correct Cell
 
